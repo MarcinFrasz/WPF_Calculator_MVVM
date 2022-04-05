@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         
         <!--Row0-->
-        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="0" TextAlignment="Right" VerticalAlignment="Center" Background="White"/>
+        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="0" TextAlignment="Right" VerticalContentAlignment="Center" Background="White"/>
         <!--Row1-->
         <Button Content="1/x" Grid.Column="0" Grid.Row="1"/>
         <Button Content="x²" Grid.Column="1" Grid.Row="1"/>
