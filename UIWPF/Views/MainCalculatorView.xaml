@@ -22,30 +22,30 @@
         </Grid.RowDefinitions>
         
         <!--Row0-->
-        <TextBlock Text="{Binding TextBlock_result}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextAlignment="Right"  Background="White"/>
+        <TextBlock x:Name="TextBlock_Result" Text="{Binding TextBlock_result,Mode=OneWay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextAlignment="Right"  Background="White"/>
         <!--Row1-->
-        <Button Command="{Binding Button_1_Click}" Content="{Binding Button_fraction}" Grid.Column="0" Grid.Row="1"/>
+        <Button Content="{Binding Button_fraction}" Grid.Column="0" Grid.Row="1"/>
         <Button Content="{Binding Button_x_squared}" Grid.Column="1" Grid.Row="1"/>
         <Button Content="{Binding Button_squareroot_of_x}" Grid.Column="2" Grid.Row="1"/>
         <Button Content="{Binding Button_divison}" Grid.Column="3" Grid.Row="1"/>
         <!--Row2-->
-        <Button Content="{Binding Button_7}" Grid.Column="0" Grid.Row="2"/>
-        <Button Content="{Binding Button_8}" Grid.Column="1" Grid.Row="2"/>
-        <Button Content="{Binding Button_9}" Grid.Column="2" Grid.Row="2"/>
-        <Button Content="{Binding Button_multiplication}" Grid.Column="3" Grid.Row="2"/>
+        <Button Command="{Binding Button_7_Click}" Content="{Binding Button_7}" Grid.Column="0" Grid.Row="2"/>
+        <Button Command="{Binding Button_8_Click}" Content="{Binding Button_8}" Grid.Column="1" Grid.Row="2"/>
+        <Button Command="{Binding Button_9_Click}" Content="{Binding Button_9}" Grid.Column="2" Grid.Row="2"/>
+        <Button  Content="{Binding Button_multiplication}" Grid.Column="3" Grid.Row="2"/>
         <!--Row3-->
-        <Button Content="{Binding Button_4}" Grid.Column="0" Grid.Row="3"/>
-        <Button Content="{Binding Button_5}" Grid.Column="1" Grid.Row="3"/>
-        <Button Content="{Binding Button_6}" Grid.Column="2" Grid.Row="3"/>
+        <Button Command="{Binding Button_4_Click}" Content="{Binding Button_4}" Grid.Column="0" Grid.Row="3"/>
+        <Button Command="{Binding Button_5_Click}" Content="{Binding Button_5}" Grid.Column="1" Grid.Row="3"/>
+        <Button Command="{Binding Button_6_Click}" Content="{Binding Button_6}" Grid.Column="2" Grid.Row="3"/>
         <Button Content="{Binding Button_substraction}" Grid.Column="3" Grid.Row="3"/>
         <!--Row4-->
-        <Button Content="{Binding Button_1}" Grid.Column="0" Grid.Row="4"/>
-        <Button Content="{Binding Button_2}" Grid.Column="1" Grid.Row="4"/>
-        <Button Content="{Binding Button_3}" Grid.Column="2" Grid.Row="4"/>
+        <Button Command="{Binding Button_1_Click}" Content="{Binding Button_1}" Grid.Column="0" Grid.Row="4"/>
+        <Button Command="{Binding Button_2_Click}" Content="{Binding Button_2}" Grid.Column="1" Grid.Row="4"/>
+        <Button Command="{Binding Button_3_Click}" Content="{Binding Button_3}" Grid.Column="2" Grid.Row="4"/>
         <Button Content="{Binding Button_addition}" Grid.Column="3" Grid.Row="4"/>
         <!--Row5-->
         <Button Content="{Binding Button_sign}" Grid.Column="0" Grid.Row="5"/>
-        <Button Content="{Binding Button_0}" Grid.Column="1" Grid.Row="5"/>
+        <Button Command="{Binding Button_0_Click}" Content="{Binding Button_0}" Grid.Column="1" Grid.Row="5"/>
         <Button Content="{Binding Button_dot}" Grid.Column="2" Grid.Row="5"/>
         <Button Content="{Binding Button_equals}" Grid.Column="3" Grid.Row="5"/>
     </Grid>
