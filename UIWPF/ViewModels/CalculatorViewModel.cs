@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 
 namespace UIWPF.ViewModels
 {
     public class CalculatorViewModel : ViewModelBase
     {
-        private string _textBox_result;
+        private string _textBlock_result;
 
         private string _button_sign;
         private string _button_dot;
@@ -27,17 +27,18 @@ namespace UIWPF.ViewModels
         private string _button_9;
 
 
-        private string _button_fraction = "1/x";
-        private string _button_x_squared = "x²";
-        private string _button_squareroot_of_x = "√x";
-        private string _button_division = "÷";
-        private string _button_multiplication = "x";
-        private string _button_substraction = "-";
-        private string _button_addition = "+";
+        private string _button_fraction;
+        private string _button_x_squared;
+        private string _button_squareroot_of_x;
+        private string _button_division;
+        private string _button_multiplication;
+        private string _button_substraction;
+        private string _button_addition;
+        private string _button_equals;
 
         public CalculatorViewModel()
         {
-          _textBox_result = "0";
+          _textBlock_result = "0";
 
           _button_sign = "+/-";
           _button_dot = ".";
@@ -62,15 +63,17 @@ namespace UIWPF.ViewModels
           _button_multiplication = "x";
           _button_substraction = "-";
          _button_addition = "+";
+         _button_equals = "=";
+            
     }
 
-        public string TextBox_result
+        public string TextBlock_result
         {
-            get { return _textBox_result; }
+            get { return _textBlock_result; }
             set
             {
-                _textBox_result = value;
-                OnPropertyChanged(nameof(TextBox_result));
+                _textBlock_result = value;
+                OnPropertyChanged(nameof(TextBlock_result));
             }
         }
 
@@ -114,7 +117,6 @@ namespace UIWPF.ViewModels
         {
             get { return _button_9; }
         }
-
         public string Button_fraction
         {
             get { return _button_fraction; }
@@ -151,6 +153,22 @@ namespace UIWPF.ViewModels
         {
             get { return _button_dot; }
         }
+        public string Button_equals
+        {
+            get { return _button_equals; }
+        }
+
+        public ICommand Button_0_Click { get; }
+        public ICommand Button_1_Click { get; }
+        public ICommand Button_2_Click { get; }
+        public ICommand Button_3_Click { get; }
+        public ICommand Button_4_Click { get; }
+        public ICommand Button_5_Click { get; }
+        public ICommand Button_6_Click { get; }
+        public ICommand Button_7_Click { get; }
+        public ICommand Button_8_Click { get; }
+        public ICommand Button_9_Click { get; }
+
 
 
 
