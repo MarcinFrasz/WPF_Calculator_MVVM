@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UIWPF.ViewModels;
 
 namespace UIWPF.Models
 {
-    public class MainCalculatorViewModel
+    public class MainCalculatorViewModel : ViewModelBase
     {
         private string _textBox_result="0";
 
