@@ -6,6 +6,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <views:MainCalculatorView/>
+        <views:MainCalculatorView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

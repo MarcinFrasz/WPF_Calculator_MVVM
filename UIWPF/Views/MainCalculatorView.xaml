@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:UIWPF.Views"
              mc:Ignorable="d" 
               d:DesignHeight="450" d:DesignWidth="800" d:FontSize="30">
     <Grid>
@@ -19,10 +18,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <!--Row0-->
-        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="0" TextAlignment="Right" VerticalContentAlignment="Center" Background="White"/>
+        <TextBox Text="0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextAlignment="Right" VerticalContentAlignment="Center" Background="White"/>
         <!--Row1-->
         <Button Content="{Binding Button_fraction}" Grid.Column="0" Grid.Row="1"/>
         <Button Content="x²" Grid.Column="1" Grid.Row="1"/>
