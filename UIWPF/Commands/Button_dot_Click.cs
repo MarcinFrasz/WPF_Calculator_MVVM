@@ -16,7 +16,33 @@ namespace UIWPF.Commands
         }
         public override void Execute(object? parameter)
         {
-            if(!_calculatorViewModel.TextBlock_result.Contains("."))
+            if(_calculatorViewModel.TextBlock_result.Contains("."))
+            {
+                
+                switch(_calculatorViewModel.TextBlock_result)
+                {
+                    case String a when a.Contains("+"):
+                       // _calculatorViewModel.TextBlock_result = "test+";
+                        string[] subs = _calculatorViewModel.TextBlock_result.Split('+');
+                        if(!subs[1].Contains('.'))
+                        {
+                            if(subs[1].Length==0)
+                            {
+                                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "0.";
+                            }
+                            else
+                            {
+                                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + ".";
+                            }
+                            
+                        }
+                        break;
+                    case String b when b.Contains("-"): _calculatorViewModel.TextBlock_result = "test-"; break;
+                    case String c when c.Contains("x"): _calculatorViewModel.TextBlock_result = "testx"; break;
+                    case String d when d.Contains("÷"): _calculatorViewModel.TextBlock_result = "test÷"; break;
+                }               
+            }
+            else
             {
                 _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + ".";
             }

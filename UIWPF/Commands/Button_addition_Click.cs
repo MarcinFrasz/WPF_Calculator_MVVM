@@ -16,20 +16,23 @@ namespace UIWPF.Commands
         }
         public override void Execute(object? parameter)
         {
-            if(_calculatorViewModel.TextBlock_result.Contains("+") || 
-                _calculatorViewModel.TextBlock_result.Contains("-") ||
-                _calculatorViewModel.TextBlock_result.Contains("x") ||
-                _calculatorViewModel.TextBlock_result.Contains("÷"))
+            switch(_calculatorViewModel.TextBlock_result)
             {
-                _calculatorViewModel.TextBlock_result = "Result";
-            }
-            else
-            {
-                if(_calculatorViewModel.TextBlock_result[_calculatorViewModel.TextBlock_result.Length - 1].Equals('.'))
-                {
-                    _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.Length-1,1);
-                }
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "+";
+                case String a when a.Contains('+'):      
+                    string[] subs = _calculatorViewModel.TextBlock_result.Split('+');
+                    if (subs[1].Length != 0)
+                    {
+                        double result = Convert.ToDouble(subs[0]) + Convert.ToDouble(subs[1]);
+                        _calculatorViewModel.TextBlock_result = Convert.ToString(result)+"+";
+                    }
+                    break;
+                default:
+                    if (_calculatorViewModel.TextBlock_result[_calculatorViewModel.TextBlock_result.Length - 1].Equals('.'))
+                    {
+                        _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.Length - 1, 1);
+                    }
+                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "+";
+                    break;
             }
         }
     }
