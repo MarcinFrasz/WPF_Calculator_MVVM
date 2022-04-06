@@ -14,7 +14,7 @@ namespace UIWPF.ViewModels
 
         private string _button_sign;
         private string _button_dot;
-        private string _button_0 ;
+        private string _button_0;
 
 
         private string _button_1;
@@ -47,30 +47,43 @@ namespace UIWPF.ViewModels
         public ICommand Button_7_Click { get; }
         public ICommand Button_8_Click { get; }
         public ICommand Button_9_Click { get; }
+        public ICommand Button_fraction_Click { get; }
+        public ICommand Button_x_squared_Click { get; }
+        public ICommand Button_squareroot_of_x_Click { get; }
+        public ICommand Button_divison_Click { get; }
+        public ICommand Button_multiplication_Click { get; }
+        public ICommand Button_substraction_Click { get; }
+        public ICommand Button_addition_Click { get; }
+        public ICommand Button_sign_Click { get; }
+        public ICommand Button_dot_Click { get; }
+        public ICommand Button_equals_Click { get; }
+
 
         public CalculatorViewModel()
         {
-        _textBlock_result = "0";
-          _button_sign = "+/-";
-          _button_dot = ".";
-          _button_0 = "0";
-          _button_1 = "1";
-          _button_2 = "2";
-          _button_3 = "3";
-          _button_4 = "4";
-          _button_5 = "5";
-          _button_6 = "6";
-          _button_7 = "7";
-          _button_8 = "8";
-          _button_9 = "9";
-          _button_fraction = "1/x";
-          _button_x_squared = "x²";
-          _button_squareroot_of_x = "√x";
-          _button_division = "÷";
-          _button_multiplication = "x";
-          _button_substraction = "-";
-         _button_addition = "+";
-         _button_equals = "=";
+            _textBlock_result = "0";
+            _button_sign = "+/-";
+            _button_dot = ".";
+            _button_0 = "0";
+            _button_1 = "1";
+            _button_2 = "2";
+            _button_3 = "3";
+            _button_4 = "4";
+            _button_5 = "5";
+            _button_6 = "6";
+            _button_7 = "7";
+            _button_8 = "8";
+            _button_9 = "9";
+            _button_fraction = "1/x";
+            _button_x_squared = "x²";
+            _button_squareroot_of_x = "√x";
+            _button_division = "÷";
+            _button_multiplication = "x";
+            _button_substraction = "-";
+            _button_addition = "+";
+            _button_equals = "=";
+
+            Button_dot_Click = new Button_dot_Click(this);
 
             Button_0_Click = new Button_0_Click(this);
             Button_1_Click = new Button_1_Click(this);
@@ -82,6 +95,7 @@ namespace UIWPF.ViewModels
             Button_7_Click = new Button_7_Click(this);
             Button_8_Click = new Button_8_Click(this);
             Button_9_Click = new Button_9_Click(this);
+            Button_addition_Click = new Button_addition_Click(this);
         }
 
         public string TextBlock_result
@@ -91,7 +105,6 @@ namespace UIWPF.ViewModels
             {
                 _textBlock_result = value;
                 OnPropertyChanged(nameof(TextBlock_result));
-                
             }
         }
 
