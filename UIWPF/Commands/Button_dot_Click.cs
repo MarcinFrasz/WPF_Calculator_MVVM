@@ -22,7 +22,7 @@ namespace UIWPF.Commands
                 switch(_calculatorViewModel.TextBlock_result)
                 {
                     case String a when a.Contains("+"):
-                       // _calculatorViewModel.TextBlock_result = "test+";
+                       
                         string[] subs = _calculatorViewModel.TextBlock_result.Split('+');
                         if(!subs[1].Contains('.'))
                         {

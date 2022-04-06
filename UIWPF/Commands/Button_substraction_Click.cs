@@ -7,16 +7,16 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_addition_Click : CommandBase
+    public class Button_substraction_Click : CommandBase
     {
-        private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_addition_Click(CalculatorViewModel calculatorViewModel)
+        CalculatorViewModel _calculatorViewModel;
+        public Button_substraction_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
         public override void Execute(object? parameter)
         {
-            string[] subs = {"",""};
+            string[] subs = { "", "" };
             switch (_calculatorViewModel.TextBlock_result)
             {
                 case String a when a.Contains('+'):
@@ -25,7 +25,7 @@ namespace UIWPF.Commands
                     if (subs[1].Length != 0)
                     {
                         decimal result = Convert.ToDecimal(subs[0]) + Convert.ToDecimal(subs[1]);
-                        _calculatorViewModel.TextBlock_result = Convert.ToString(result)+"+";
+                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
                     }
                     break;
                 case String b when b.Contains('-'):
@@ -34,7 +34,7 @@ namespace UIWPF.Commands
                     if (subs[1].Length != 0)
                     {
                         decimal result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "+";
+                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
                     }
                     break;
                 case String c when c.Contains('x'):
@@ -43,7 +43,7 @@ namespace UIWPF.Commands
                     if (subs[1].Length != 0)
                     {
                         decimal result = Convert.ToDecimal(subs[0]) * Convert.ToDecimal(subs[1]);
-                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "+";
+                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
                     }
                     break;
                 case String d when d.Contains('÷'):
@@ -52,7 +52,7 @@ namespace UIWPF.Commands
                     if (subs[1].Length != 0)
                     {
                         decimal result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
-                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "+";
+                        _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
                     }
                     break;
                 default:
@@ -60,7 +60,7 @@ namespace UIWPF.Commands
                     {
                         _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.Length - 1, 1);
                     }
-                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "+";
+                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "-";
                     break;
             }
         }

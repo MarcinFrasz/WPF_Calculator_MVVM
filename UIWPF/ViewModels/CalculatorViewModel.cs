@@ -96,6 +96,7 @@ namespace UIWPF.ViewModels
             Button_8_Click = new Button_8_Click(this);
             Button_9_Click = new Button_9_Click(this);
             Button_addition_Click = new Button_addition_Click(this);
+            Button_substraction_Click = new Button_substraction_Click(this);
         }
 
         public string TextBlock_result
