@@ -15,65 +15,92 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel=calculatorViewModel;
         }
+        private string Set_sign(string textBox_content,char sign_type)
+        {
+            Array.Clear(subs);
+            if (sign_type != '-')
+            {
+                subs = textBox_content.Split(sign_type);
+                if (subs[1].Length > 0 && subs[1].Count(x => x == '-') == 0)
+                {
+                    subs[1].Remove(subs[1].IndexOf('-'), 1);
+                    textBox_content = subs[0] + subs[1];
+                }
+                else
+                {
+                    if (subs[1].Length > 0)
+                    {
+                        textBox_content = subs[0] + '-' + subs[1];
+                    }
+                }
+            }
+            else
+            {
+                switch(textBox_content.Count(x=>x==sign_type))
+                {
+                    case 1:
+                        if (textBox_content[0] == sign_type)
+                            textBox_content = textBox_content.Remove(0, 1);
+                        else
+                        {
+                            subs = textBox_content.Split(sign_type);
+                            if(subs[1].Length>0)
+                            {
+                                textBox_content = subs[0] + sign_type + sign_type + subs[1];
+                            }
+                        }
+                        break;
+                    case 2:
+                        if(textBox_content[0]== sign_type)
+                        {
+                            textBox_content.Remove(0, 1);
+                            subs = textBox_content.Split(sign_type);
+                            if (subs[1].Length > 0)
+                                textBox_content = sign_type+subs[0] + sign_type +sign_type+ subs[1];
+                        }
+                        else
+                        {
+                            textBox_content=textBox_content.Remove(textBox_content.IndexOf('-'), 1);
+                            subs = textBox_content.Split(sign_type);
+                            if (subs[1].Length > 0)
+                            {
+                                textBox_content = subs[0] + sign_type + subs[1];
+                            }
+                            else
+                                textBox_content = subs[0] + sign_type + sign_type;
+                        }
+                        break;
+                    case 3:
+                        textBox_content=textBox_content.Remove(textBox_content.IndexOf('-'));
+                        textBox_content = textBox_content.Remove(textBox_content.IndexOf('-'));
+                        textBox_content = sign_type + textBox_content;
+                        break;
+                }
+            }
+            return textBox_content;
+        }
         public override void Execute(object? parameter)
         {
+            Array.Clear(subs);  
             switch(_calculatorViewModel.TextBlock_result)
             {
                 case String a when a.Contains('+'):
-                    subs = _calculatorViewModel.TextBlock_result.Split('+');
-                    if(subs[1].Length>0)
-                    {
-                        if(subs[1].Contains('-'))
-                        {
-                            subs[1].Remove(0, 1);
-                        }
-                        else
-                        {
-                            subs[1] = '-' + subs[1];
-                        }
-                        _calculatorViewModel.TextBlock_result = subs[0] + "+" + subs[1];
-                    }     
+                    _calculatorViewModel.TextBlock_result=Set_sign(_calculatorViewModel.TextBlock_result, '+');
                     break;
-                case String b when b.Contains('-'):
-                    //extra steps needed
+                case String b when b.Contains('x'):
+                    _calculatorViewModel.TextBlock_result = Set_sign(_calculatorViewModel.TextBlock_result, 'x');
                     break;
-                case String c when c.Contains('x'):
-                    subs = _calculatorViewModel.TextBlock_result.Split('x');
-                    if (subs[1].Length > 0)
-                    {
-                        if (subs[1].Contains('-'))
-                        {
-                            subs[1].Remove(0, 1);
-                        }
-                        else
-                        {
-                            subs[1] = '-' + subs[1];
-                        }
-                        _calculatorViewModel.TextBlock_result = subs[0] + "x" + subs[1];
-                    }
+                case String c when c.Contains('÷'):
+                    _calculatorViewModel.TextBlock_result = Set_sign(_calculatorViewModel.TextBlock_result, '÷');
                     break;
-                case String d when d.Contains('÷'):
-                    subs = _calculatorViewModel.TextBlock_result.Split('÷');
-                    if (subs[1].Length > 0)
-                    {
-                        if (subs[1].Contains('-'))
-                        {
-                            subs[1].Remove(0, 1);
-                        }
-                        else
-                        {
-                            subs[1] = '-' + subs[1];
-                        }
-                        _calculatorViewModel.TextBlock_result = subs[0] + "÷" + subs[1];
-                    }
+                case String d when d.Contains('-'):
+                    _calculatorViewModel.TextBlock_result = Set_sign(_calculatorViewModel.TextBlock_result, '-');
                     break;
                 default:
-                    if (_calculatorViewModel.TextBlock_result[0] != '-')
-                        _calculatorViewModel.TextBlock_result = '-' + _calculatorViewModel.TextBlock_result;
-                    else
-                        _calculatorViewModel.TextBlock_result.Remove(0, 1);
+                    _calculatorViewModel.TextBlock_result = '-'+_calculatorViewModel.TextBlock_result;
                     break;
             }
         }
-    }
+        }
 }
+
