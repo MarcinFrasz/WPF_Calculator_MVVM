@@ -53,7 +53,7 @@ namespace UIWPF.Commands
                     case 2:
                         if(textBox_content[0]== sign_type)
                         {
-                            textBox_content.Remove(0, 1);
+                            textBox_content=textBox_content.Remove(0, 1);
                             subs = textBox_content.Split(sign_type);
                             if (subs[1].Length > 0)
                                 textBox_content = sign_type+subs[0] + sign_type +sign_type+ subs[1];
@@ -71,8 +71,8 @@ namespace UIWPF.Commands
                         }
                         break;
                     case 3:
-                        textBox_content=textBox_content.Remove(textBox_content.IndexOf('-'));
-                        textBox_content = textBox_content.Remove(textBox_content.IndexOf('-'));
+                        textBox_content=textBox_content.Remove(textBox_content.IndexOf('-'),1);
+                        textBox_content = textBox_content.Remove(textBox_content.IndexOf('-'),1);
                         textBox_content = sign_type + textBox_content;
                         break;
                 }
