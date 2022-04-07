@@ -30,37 +30,7 @@ namespace UIWPF.Commands
                         _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
                     }
                     break;
-                case String b when b.Contains('-'):
-                    Array.Clear(subs);
-                    subs = _calculatorViewModel.TextBlock_result.Split('-');
-                    switch(subs.Length)
-                    {
-                        case 2:
-                            break;
-                        case 3:
-                            if(_calculatorViewModel.TextBlock_result[0]=='-')
-                            {
-                                subs[0] = "-"+subs[1];
-                                subs[1] =  subs[2];
-                            }
-                            else
-                            {
-                                subs[1] = "-" + subs[3];
-                            }
-                            break;
-                        case 6:
-                            subs[0] = "-" + subs[1];
-                            subs[1] = "-" + subs[5];
-                            break;
-
-                        default:
-                            _calculatorViewModel.TextBlock_result="Something went wrong line56 substraction_click";
-                            break;
-                    }
-                     result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                    _calculatorViewModel.TextBlock_result=Convert.ToString(result) + "-";
-                    break;
-                case String c when c.Contains('x'):
+                case String b when b.Contains('x'):
                     Array.Clear(subs);
                     subs = _calculatorViewModel.TextBlock_result.Split('x');
                     if (subs[1].Length != 0)
@@ -69,13 +39,78 @@ namespace UIWPF.Commands
                         _calculatorViewModel.TextBlock_result = Convert.ToString(res) + "-";
                     }
                     break;
-                case String d when d.Contains('÷'):
+                case String c when c.Contains('÷'):
                     Array.Clear(subs);
                     subs = _calculatorViewModel.TextBlock_result.Split('÷');
                     if (subs[1].Length != 0)
                     {
                          result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
                         _calculatorViewModel.TextBlock_result = Convert.ToString(result) + "-";
+                    }
+                    break;
+                case String d when d.Contains('-'):
+                    Array.Clear(subs);
+                     
+                    switch (_calculatorViewModel.TextBlock_result.Count(x => x == '-'))
+                    {
+                        case 1:
+                            if(_calculatorViewModel.TextBlock_result[0]=='-')
+                            {
+                                _calculatorViewModel.TextBlock_result=_calculatorViewModel.TextBlock_result+"-";
+                            }
+                            else
+                            {
+                                subs = _calculatorViewModel.TextBlock_result.Split('-');
+                                if (subs[1].Length > 0)
+                                {
+                                    result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
+                                    _calculatorViewModel.TextBlock_result=Convert.ToString(result) + "-";
+                                }
+                                else
+                                {
+                                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.Length - 1, 1);
+                                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "-";
+                                }
+                            }
+                            break;
+                        case 2:
+                            if(_calculatorViewModel.TextBlock_result[0]=='-')
+                            {
+                                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(0, 1);
+                                subs = _calculatorViewModel.TextBlock_result.Split('-');
+                                subs[0] = '-' + subs[0];
+                                if (subs[1].Length > 0)
+                                {
+                                    result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
+                                    _calculatorViewModel.TextBlock_result = Convert.ToString(result)+'-';
+                                }
+                                else
+                                {
+                                    _calculatorViewModel.TextBlock_result = subs[0] + '-';
+                                }
+                            }
+                            else
+                            {
+                                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.IndexOf('-'), 1);
+                                subs = _calculatorViewModel.TextBlock_result.Split('-');
+                                subs[1] = "-" + subs[1];
+                                result = Convert.ToDecimal(subs[0]) + Convert.ToDecimal(subs[1]);
+                                _calculatorViewModel.TextBlock_result = Convert.ToString(result) + '-';
+                                
+                            }
+                            break;
+                        case 3:
+                            _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(0, 1);
+                            _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.IndexOf('-'), 1);
+                            subs = _calculatorViewModel.TextBlock_result.Split('-');
+                            subs[0] = '-' + subs[0];
+                            subs[1] = '-' + subs[1];
+                            result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
+                            _calculatorViewModel.TextBlock_result = Convert.ToString(result) + '-';
+                            break;
+                        default:
+                            _calculatorViewModel.TextBlock_result = "didn't enter";
+                            break;
                     }
                     break;
                 default:
