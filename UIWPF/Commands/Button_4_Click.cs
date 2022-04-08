@@ -7,23 +7,29 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_4_Click:CommandBase
+    internal class Button_4_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_4_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_4_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        public override void Execute(object? parameter)
+        private string FourClick_functionality(string textBox_content)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "4";
-            }
+            if (textBox_content == "0")
+                textBox_content = "4";
             else
             {
-                _calculatorViewModel.TextBlock_result = "4";
+                if (textBox_content == "-0")
+                    textBox_content = "-4";
+                else
+                    textBox_content = textBox_content + '4';
             }
+            return textBox_content;
+        }
+        public override void Execute(object? parameter)
+        {
+            _calculatorViewModel.TextBlock_result=FourClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

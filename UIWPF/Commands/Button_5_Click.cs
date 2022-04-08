@@ -7,23 +7,29 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_5_Click:CommandBase
+    internal class Button_5_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_5_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_5_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        public override void Execute(object? parameter)
+        private string FiveClick_functionality(string textBox_content)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "5";
-            }
+            if (textBox_content == "0")
+                textBox_content = "5";
             else
             {
-                _calculatorViewModel.TextBlock_result = "5";
+                if (textBox_content == "-0")
+                    textBox_content = "-5";
+                else
+                    textBox_content = textBox_content + '5';
             }
+            return textBox_content;
+        }
+        public override void Execute(object? parameter)
+        {
+            _calculatorViewModel.TextBlock_result=FiveClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

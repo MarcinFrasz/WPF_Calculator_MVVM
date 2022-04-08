@@ -7,23 +7,29 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_6_Click:CommandBase
+    internal class Button_6_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_6_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_6_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        public override void Execute(object? parameter)
+        private string SixClick_functionality(string textBox_content)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "6";
-            }
+            if (textBox_content == "0")
+                textBox_content = "6";
             else
             {
-                _calculatorViewModel.TextBlock_result = "6";
+                if (textBox_content == "-0")
+                    textBox_content = "-6";
+                else
+                    textBox_content = textBox_content + '6';
             }
+            return textBox_content;
+        }
+        public override void Execute(object? parameter)
+        {
+            _calculatorViewModel.TextBlock_result=SixClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

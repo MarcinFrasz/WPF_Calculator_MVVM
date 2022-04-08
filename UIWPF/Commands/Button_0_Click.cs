@@ -7,22 +7,23 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_0_Click:CommandBase
+    internal class Button_0_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_0_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_0_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
+        }
+        private string ZeroClick_functionality(string textBox_content)
+        {
+
+            return textBox_content;
         }
         public override void Execute(object? parameter)
         {
             if (_calculatorViewModel.TextBlock_result != "0")
             {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "1";
-            }
-            else
-            {
-                _calculatorViewModel.TextBlock_result = "1";
+                 
             }
         }
     }

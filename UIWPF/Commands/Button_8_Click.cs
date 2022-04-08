@@ -7,23 +7,29 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_8_Click:CommandBase
+    internal class Button_8_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_8_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_8_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        public override void Execute(object? parameter)
+        private string EightClick_functionality(string textBox_content)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "8";
-            }
+            if (textBox_content == "0")
+                textBox_content = "8";
             else
             {
-                _calculatorViewModel.TextBlock_result = "8";
+                if (textBox_content == "-0")
+                    textBox_content = "-8";
+                else
+                    textBox_content = textBox_content + '8';
             }
+            return textBox_content;
+        }
+        public override void Execute(object? parameter)
+        {
+            _calculatorViewModel.TextBlock_result=EightClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

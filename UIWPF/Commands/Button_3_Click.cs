@@ -7,23 +7,29 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_3_Click:CommandBase
+    internal class Button_3_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        public Button_3_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_3_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        public override void Execute(object? parameter)
+        private string ThreeClick_functionality(string textBox_content)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "3";
-            }
+            if (textBox_content == "0")
+                textBox_content = "3";
             else
             {
-                _calculatorViewModel.TextBlock_result = "3";
+                if (textBox_content == "-0")
+                    textBox_content = "-3";
+                else
+                    textBox_content = textBox_content + '3';
             }
+            return textBox_content;
+        }
+        public override void Execute(object? parameter)
+        {
+            _calculatorViewModel.TextBlock_result=ThreeClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

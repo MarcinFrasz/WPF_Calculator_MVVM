@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,38 +8,36 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    internal class Button_substraction_Click : CommandBase
+    internal class Button_multiplication_Click : CommandBase
     {
         CalculatorViewModel _calculatorViewModel;
-        
-        internal Button_substraction_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_multiplication_Click(CalculatorViewModel calculatorViewModel)
         {
-            _calculatorViewModel = calculatorViewModel;
+            _calculatorViewModel=calculatorViewModel;
         }
-
         public override void Execute(object? parameter)
         {
             Operations op = new Operations();
             switch (_calculatorViewModel.TextBlock_result)
-            { 
+            {
                 case String a when a.Contains('+'):
-                    _calculatorViewModel.TextBlock_result=op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '+')+'-';
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '+') + 'x';
                     break;
                 case String b when b.Contains('x'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, 'x')+'-';
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, 'x') + 'x';
                     break;
                 case String c when c.Contains('÷'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '÷')+'-';
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '÷') + 'x';
                     break;
                 case String d when d.Contains('-'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '-')+'-';
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '-') + 'x';
                     break;
                 default:
                     if (_calculatorViewModel.TextBlock_result[_calculatorViewModel.TextBlock_result.Length - 1].Equals('.'))
                     {
                         _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result.Remove(_calculatorViewModel.TextBlock_result.Length - 1, 1);
                     }
-                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "-";
+                    _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "x";
                     break;
             }
         }

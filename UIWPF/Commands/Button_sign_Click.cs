@@ -7,11 +7,11 @@ using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
 {
-    public class Button_sign_Click : CommandBase
+    internal class Button_sign_Click : CommandBase
     {
         CalculatorViewModel _calculatorViewModel;
         string[] subs = { "", ""};
-        public Button_sign_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_sign_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel=calculatorViewModel;
         }
@@ -23,14 +23,14 @@ namespace UIWPF.Commands
                 subs = textBox_content.Split(sign_type);
                 if (subs[1].Length > 0 && subs[1].Count(x => x == '-') == 0)
                 {
-                    subs[1].Remove(subs[1].IndexOf('-'), 1);
-                    textBox_content = subs[0] + subs[1];
+                    textBox_content = subs[0] + sign_type+'-'+ subs[1];
                 }
                 else
                 {
                     if (subs[1].Length > 0)
                     {
-                        textBox_content = subs[0] + '-' + subs[1];
+                        subs[1] = subs[1].Remove(subs[1].IndexOf('-'));
+                        textBox_content = subs[0] + sign_type + subs[1];
                     }
                 }
             }
