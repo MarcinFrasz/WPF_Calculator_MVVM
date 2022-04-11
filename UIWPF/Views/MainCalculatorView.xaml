@@ -22,7 +22,8 @@
         </Grid.RowDefinitions>
         
         <!--Row0-->
-        <TextBlock x:Name="TextBlock_Result" Text="{Binding TextBlock_result,Mode=OneWay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextAlignment="Right"  Background="White"/>
+        <TextBox x:Name="TextBlock_Result" Text="{Binding TextBlock_result,Mode=OneWay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextAlignment="Right" HorizontalScrollBarVisibility="Visible" IsReadOnly="True"  Background="White"/>
+        <Button  Command="{Binding Button_clear_Click}" Content="{Binding Button_clear}" Grid.Column="0" Grid.Row="0"/>
         <!--Row1-->
         <Button Content="{Binding Button_fraction}" Grid.Column="0" Grid.Row="1"/>
         <Button Content="{Binding Button_x_squared}" Grid.Column="1" Grid.Row="1"/>
@@ -47,7 +48,7 @@
         <Button Command="{Binding Button_sign_Click}" Content="{Binding Button_sign}" Grid.Column="0" Grid.Row="5"/>
         <Button Command="{Binding Button_0_Click}" Content="{Binding Button_0}" Grid.Column="1" Grid.Row="5"/>
         <Button Command="{Binding Button_dot_Click}" Content="{Binding Button_dot}" Grid.Column="2" Grid.Row="5"/>
-        <Button Content="{Binding Button_equals}" Grid.Column="3" Grid.Row="5"/>
+        <Button Command="{Binding Button_equals_Click}" Content="{Binding Button_equals}" Grid.Column="3" Grid.Row="5"/>
     </Grid>
     
     

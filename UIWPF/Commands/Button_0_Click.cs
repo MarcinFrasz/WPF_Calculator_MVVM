@@ -16,15 +16,15 @@ namespace UIWPF.Commands
         }
         private string ZeroClick_functionality(string textBox_content)
         {
-
+            if(textBox_content !="0")
+            {
+                textBox_content = textBox_content + '0';
+            }
             return textBox_content;
         }
         public override void Execute(object? parameter)
         {
-            if (_calculatorViewModel.TextBlock_result != "0")
-            {
-                 
-            }
+            _calculatorViewModel.TextBlock_result = ZeroClick_functionality(_calculatorViewModel.TextBlock_result);
         }
     }
 }

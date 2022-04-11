@@ -29,7 +29,7 @@ namespace UIWPF.Commands
                 {
                     if (subs[1].Length > 0)
                     {
-                        subs[1] = subs[1].Remove(subs[1].IndexOf('-'));
+                        subs[1] = subs[1].Remove(subs[1].IndexOf('-'),1);
                         textBox_content = subs[0] + sign_type + subs[1];
                     }
                 }

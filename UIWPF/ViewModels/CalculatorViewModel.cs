@@ -11,6 +11,7 @@ namespace UIWPF.ViewModels
     public class CalculatorViewModel : ViewModelBase
     {
         private string _textBlock_result;
+        private string _button_clear;
 
         private string _button_sign;
         private string _button_dot;
@@ -57,6 +58,7 @@ namespace UIWPF.ViewModels
         public ICommand Button_sign_Click { get; }
         public ICommand Button_dot_Click { get; }
         public ICommand Button_equals_Click { get; }
+        public ICommand Button_clear_Click { get; }
 
 
         public CalculatorViewModel()
@@ -82,8 +84,11 @@ namespace UIWPF.ViewModels
             _button_substraction = "-";
             _button_addition = "+";
             _button_equals = "=";
+            _button_clear = "|X|";
 
             Button_dot_Click = new Button_dot_Click(this);
+            Button_sign_Click = new Button_sign_Click(this);
+            Button_clear_Click = new Button_clear_Click(this);
 
             Button_0_Click = new Button_0_Click(this);
             Button_1_Click = new Button_1_Click(this);
@@ -99,7 +104,8 @@ namespace UIWPF.ViewModels
             Button_substraction_Click = new Button_substraction_Click(this);
             Button_multiplication_Click=new Button_multiplication_Click(this);
             Button_division_Click = new Button_division_Click(this);
-            Button_sign_Click = new Button_sign_Click(this);
+            Button_equals_Click = new Button_equals_Click(this);
+            
         }
 
         public string TextBlock_result
@@ -111,7 +117,7 @@ namespace UIWPF.ViewModels
                 OnPropertyChanged(nameof(TextBlock_result));
             }
         }
-
+        
         public string Button_0
         {
             get { return _button_0; }
@@ -191,6 +197,10 @@ namespace UIWPF.ViewModels
         public string Button_equals
         {
             get { return _button_equals; }
+        }
+        public string Button_clear
+        {
+            get { return _button_clear; }
         }
     }
 }

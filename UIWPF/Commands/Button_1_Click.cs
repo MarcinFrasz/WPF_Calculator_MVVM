@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using UIWPF.ViewModels;
+using UIWPF.Commands.Functions;
 
 namespace UIWPF.Commands
 {
@@ -15,22 +16,10 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        private string OneClick_functionality(string textBox_content)
-        {
-            if (textBox_content == "0")
-                textBox_content = "1";
-            else
-            {
-                if (textBox_content == "-0")
-                    textBox_content = "-1";
-                else
-                    textBox_content = textBox_content + '1';
-            }
-            return textBox_content;
-        }
         public override void Execute(object? parameter)
         {
-            _calculatorViewModel.TextBlock_result=OneClick_functionality(_calculatorViewModel.TextBlock_result);
+            NumberKeysBehaviour nkb = new NumberKeysBehaviour();
+            _calculatorViewModel.TextBlock_result = nkb.NumKeysBehaviour(_calculatorViewModel.TextBlock_result, '1');
         }
     }
 }

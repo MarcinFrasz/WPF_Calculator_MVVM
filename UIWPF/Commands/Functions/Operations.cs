@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace UIWPF.Commands.Functions
 {
     internal class Operations
     {
-        private string Operations_excluded_substraction(string textBox_content,char sign_type)
+        private string Operations_excluded_substraction(string textBox_content,char sign_type,char operation_type)
         {
             string[] subs = { "", "" };
             decimal result = 0;
@@ -20,20 +21,26 @@ namespace UIWPF.Commands.Functions
                 {
                     case '+':
                         result = Convert.ToDecimal(subs[0]) + Convert.ToDecimal(subs[1]);
+                        textBox_content = Convert.ToString(result)+operation_type;
                         break;
                     case 'x':
                         result = Convert.ToDecimal(subs[0]) * Convert.ToDecimal(subs[1]);
+                        textBox_content = Convert.ToString(result)+operation_type;
                         break;
                     case '÷':
-                        result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
+                        if (subs[1] == "0")
+                            textBox_content = "Cannot divide by 0";
+                        else
+                        {
+                            result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
+                            textBox_content = Convert.ToString(result)+operation_type;
+                        }
                         break;
                 }
-                
-                textBox_content = Convert.ToString(result);
             }
             return textBox_content;
         }
-        private string Operations_substraction(string textBox_content)
+        private string Operations_substraction(string textBox_content,char operation_type)
         {
             decimal result = 0;
             string[] subs = {"","" };
@@ -42,7 +49,7 @@ namespace UIWPF.Commands.Functions
                 case 1:
                     if (textBox_content[0] == '-')
                     {
-                        textBox_content = textBox_content + '-';
+                        textBox_content = textBox_content + operation_type;
                     }
                     else
                     {
@@ -51,11 +58,6 @@ namespace UIWPF.Commands.Functions
                         {
                             result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
                             textBox_content = Convert.ToString(result);
-                        }
-                        else
-                        {
-                            textBox_content = textBox_content.Remove(textBox_content.Length - 1, 1);
-                            textBox_content = textBox_content;
                         }
                     }
                     break;
@@ -97,17 +99,33 @@ namespace UIWPF.Commands.Functions
             }
             return textBox_content;
         }
-        internal string Calculations_for_Execute(string textBox_content, char sign_type)
+        internal string Calculations_for_Execute(string textBox_content, char sign_type,char operation_sing)
         {
-            if (sign_type != '-')
-            {
-                
-                textBox_content = Operations_excluded_substraction(textBox_content, sign_type);
+            int n = textBox_content.Length - 1;
+                if (sign_type != '-')
+                {
 
+                    textBox_content = Operations_excluded_substraction(textBox_content, sign_type,operation_sing);
+
+                }
+                else
+                {
+                    textBox_content = Operations_substraction(textBox_content,operation_sing);
+                }
+            
+            return textBox_content;
+        }
+        internal string Calculations_for_default_Execute(string textBox_content,char operation_type)
+        {
+            if (textBox_content[textBox_content.Length - 1].Equals('.'))
+            {
+                textBox_content = textBox_content.Remove(textBox_content.Length - 1, 1);
             }
             else
             {
-                textBox_content = Operations_substraction(textBox_content);
+                int n = textBox_content.Length-1;
+                if (!Regex.IsMatch(textBox_content, @"^[0-9-]*[x÷+-]+$"))
+                    textBox_content = textBox_content + operation_type;
             }
             return textBox_content;
         }

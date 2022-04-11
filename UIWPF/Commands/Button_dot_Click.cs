@@ -30,7 +30,8 @@ namespace UIWPF.Commands
                     }
                     else
                     {
-                        textBox_content = textBox_content + ".";
+                        if(subs[1].Length!=1 || !subs[1].Contains('.'))
+                            textBox_content = textBox_content + ".";
                     }
 
                 }
@@ -47,13 +48,14 @@ namespace UIWPF.Commands
                             if (textBox_content.Length > 1 && textBox_content[0] != sign_type)
                             {
                                 subs = textBox_content.Split(sign_type);
-                                if (subs[1].Length > 0)
+                                if (subs[1].Length > 0 && !subs[1].Contains('.'))
                                 {
                                     subs[1] = subs[1] + '.';
                                 }
                                 else
                                 {
-                                    subs[1] = subs[1] + ".0";
+                                    if(!subs[1].Contains('.'))
+                                        subs[1] = subs[1] + ".";
                                 }
                                 textBox_content = subs[0] + sign_type + subs[1];
                             }
@@ -141,7 +143,7 @@ namespace UIWPF.Commands
             else
             {
                 int n = _calculatorViewModel.TextBlock_result.Length - 1;
-                if (_calculatorViewModel.TextBlock_result[n] != '-' && _calculatorViewModel.TextBlock_result[n] != '+' && _calculatorViewModel.TextBlock_result[n] != 'x' && _calculatorViewModel.TextBlock_result[n] != '÷')
+                if (_calculatorViewModel.TextBlock_result[n] != '-' && _calculatorViewModel.TextBlock_result[n] != '+' && _calculatorViewModel.TextBlock_result[n] != 'x' && _calculatorViewModel.TextBlock_result[n] != '÷' && _calculatorViewModel.TextBlock_result[n]!='.')
                     _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + ".";
                 else
                     _calculatorViewModel.TextBlock_result = _calculatorViewModel.TextBlock_result + "0.";

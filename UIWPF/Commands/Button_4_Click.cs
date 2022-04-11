@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UIWPF.Commands.Functions;
 using UIWPF.ViewModels;
 
 namespace UIWPF.Commands
@@ -14,22 +15,11 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        private string FourClick_functionality(string textBox_content)
-        {
-            if (textBox_content == "0")
-                textBox_content = "4";
-            else
-            {
-                if (textBox_content == "-0")
-                    textBox_content = "-4";
-                else
-                    textBox_content = textBox_content + '4';
-            }
-            return textBox_content;
-        }
+       
         public override void Execute(object? parameter)
         {
-            _calculatorViewModel.TextBlock_result=FourClick_functionality(_calculatorViewModel.TextBlock_result);
+            NumberKeysBehaviour nkb = new NumberKeysBehaviour();
+            _calculatorViewModel.TextBlock_result = nkb.NumKeysBehaviour(_calculatorViewModel.TextBlock_result, '4');
         }
     }
 }
