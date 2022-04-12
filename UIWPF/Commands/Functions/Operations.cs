@@ -57,7 +57,7 @@ namespace UIWPF.Commands.Functions
                         if (subs[1].Length > 0)
                         {
                             result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                            textBox_content = Convert.ToString(result);
+                            textBox_content = Convert.ToString(result)+operation_type;
                         }
                     }
                     break;
@@ -70,11 +70,11 @@ namespace UIWPF.Commands.Functions
                         if (subs[1].Length > 0)
                         {
                             result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                            textBox_content = Convert.ToString(result);
+                            textBox_content = Convert.ToString(result)+operation_type;
                         }
                         else
                         {
-                            textBox_content = subs[0];
+                            textBox_content = subs[0]+'-';
                         }
                     }
                     else
@@ -82,8 +82,8 @@ namespace UIWPF.Commands.Functions
                         textBox_content = textBox_content.Remove(textBox_content.IndexOf('-'), 1);
                         subs = textBox_content.Split('-');
                         subs[1] = "-" + subs[1];
-                        result = Convert.ToDecimal(subs[0]) + Convert.ToDecimal(subs[1]);
-                        textBox_content = Convert.ToString(result);
+                        result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
+                        textBox_content = Convert.ToString(result)+operation_type;
 
                     }
                     break;
@@ -94,7 +94,7 @@ namespace UIWPF.Commands.Functions
                     subs[0] = '-' + subs[0];
                     subs[1] = '-' + subs[1];
                     result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                    textBox_content = Convert.ToString(result);
+                    textBox_content = Convert.ToString(result)+operation_type;
                     break;
             }
             return textBox_content;

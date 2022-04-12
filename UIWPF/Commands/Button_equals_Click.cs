@@ -21,16 +21,16 @@ namespace UIWPF.Commands
             switch (_calculatorViewModel.TextBlock_result)
             {
                 case String a when a.Contains('+'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '+',' ');
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '+', '\0');
                     break;
                 case String b when b.Contains('x'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, 'x',' ');
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, 'x', '\0');
                     break;
                 case String c when c.Contains('÷'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '÷',' ');
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '÷', '\0');
                     break;
                 case String d when d.Contains('-'):
-                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '-',' ');
+                    _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '-', '\0');
                     break; 
             }
         }

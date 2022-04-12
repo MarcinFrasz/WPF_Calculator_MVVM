@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWPF", "UIWPF\UIWPF.csproj", "{E6669C8D-1B13-4CC4-BE36-4626101A34AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIWPF", "UIWPF\UIWPF.csproj", "{E6669C8D-1B13-4CC4-BE36-4626101A34AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIWPF.UnitTests", "UIWPF.UnitTests\UIWPF.UnitTests.csproj", "{830BC536-FB45-429A-A657-1C843BF58139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E6669C8D-1B13-4CC4-BE36-4626101A34AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6669C8D-1B13-4CC4-BE36-4626101A34AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6669C8D-1B13-4CC4-BE36-4626101A34AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830BC536-FB45-429A-A657-1C843BF58139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830BC536-FB45-429A-A657-1C843BF58139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830BC536-FB45-429A-A657-1C843BF58139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830BC536-FB45-429A-A657-1C843BF58139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
