@@ -32,8 +32,15 @@ namespace UIWPF.Commands.Functions
                             textBox_content = "Cannot divide by 0";
                         else
                         {
-                            result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
-                            textBox_content = Convert.ToString(result)+operation_type;
+                            if (Convert.ToDecimal(subs[1]) != 0)
+                            {
+                                result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
+                                textBox_content = Convert.ToString(result) + operation_type;
+                            }
+                            else
+                            {
+                                textBox_content = "Cannot divide by 0";
+                            }
                         }
                         break;
                 }

@@ -501,6 +501,20 @@ namespace UIWPF.UnitTests
             Assert.AreEqual("-5x", result);
         }
         [TestMethod]
+        public void Calculations_for_execute_Test_minus0point5_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-0.5", '-', 'x');
+            Assert.AreEqual("-0.5x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_0point5minus_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("0.5-", '-', 'x');
+            Assert.AreEqual("0.5-", result);
+        }
+        [TestMethod]
         public void Calculations_for_execute_Test_5plus3_Click_x()
         {
             var operations = new Operations();
@@ -529,6 +543,34 @@ namespace UIWPF.UnitTests
             Assert.AreEqual("-8x", result);
         }
         [TestMethod]
+        public void Calculations_for_execute_Test_5plus_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5+", '+', 'x');
+            Assert.AreEqual("5+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_0point5plus_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("0.5+", '+', 'x');
+            Assert.AreEqual("0.5+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus0point5plus_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-0.5+", '+', 'x');
+            Assert.AreEqual("-0.5+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5plus_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5+", '+', 'x');
+            Assert.AreEqual("-5+", result);
+        }
+        [TestMethod]
         public void Calculations_for_execute_Test_minus0point5plusminus0point3_Click_x()
         {
             var operations = new Operations();
@@ -548,6 +590,111 @@ namespace UIWPF.UnitTests
             var operations = new Operations();
             var result = operations.Calculations_for_Execute("-0.5+0.3", '+', 'x');
             Assert.AreEqual("-0.2x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_6div2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("6÷2", '÷', 'x');
+            Assert.AreEqual("3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_6div_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("6÷", '÷', 'x');
+            Assert.AreEqual("6÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus6div_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-6÷", '÷', 'x');
+            Assert.AreEqual("-6÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_6divminus2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("6÷-2", '÷', 'x');
+            Assert.AreEqual("-3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus6div2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-6÷2", '÷', 'x');
+            Assert.AreEqual("-3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus6divminus2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-6÷-2", '÷', 'x');
+            Assert.AreEqual("3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_0point6div2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("0.6÷2", '÷', 'x');
+            Assert.AreEqual("0.3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_6div0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("6÷0.2", '÷', 'x');
+            Assert.AreEqual("30x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_0point6div0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("0.6÷0.2", '÷', 'x');
+            Assert.AreEqual("3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus0point6div0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-0.6÷0.2", '÷', 'x');
+            Assert.AreEqual("-3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_0point6divminus0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("0.6÷-0.2", '÷', 'x');
+            Assert.AreEqual("-3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus0point6divminus0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-0.6÷-0.2", '÷', 'x');
+            Assert.AreEqual("3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus0point6divminus2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-0.6÷-2", '÷', 'x');
+            Assert.AreEqual("0.3x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus6divminus0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-6÷-0.2", '÷', 'x');
+            Assert.AreEqual("30x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus6div0point2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-6÷0.2", '÷', 'x');
+            Assert.AreEqual("-30x", result);
         }
     }
 }

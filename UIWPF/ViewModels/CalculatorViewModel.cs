@@ -105,7 +105,11 @@ namespace UIWPF.ViewModels
             Button_multiplication_Click=new Button_multiplication_Click(this);
             Button_division_Click = new Button_division_Click(this);
             Button_equals_Click = new Button_equals_Click(this);
-            
+            Button_fraction_Click = new Button_fraction_Click(this);
+            Button_x_squared_Click = new Button_x_squared_Click(this);
+            Button_squareroot_of_x_Click = new Button_squareroot_of_x_Click(this);
+
+
         }
 
         public string TextBlock_result
