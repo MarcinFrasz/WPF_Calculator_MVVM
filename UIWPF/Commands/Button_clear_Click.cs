@@ -87,9 +87,7 @@ namespace UIWPF.Commands
                 else
                 {
                     if(textBox_content.Length==0)
-                    {
-                        textBox_content = "0";
-                    }
+                        textBox_content = "0";                   
                 }
             }
             else

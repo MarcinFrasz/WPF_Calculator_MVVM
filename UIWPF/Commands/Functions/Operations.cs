@@ -9,6 +9,39 @@ namespace UIWPF.Commands.Functions
 {
     internal class Operations
     {
+        private string Remove_useless_zeros(string textBox_content)
+        {
+            if (Regex.IsMatch(textBox_content, @"^[0-9-]*[.]+[0]*[x÷+-]+$"))
+            {
+                char operation_sign = textBox_content[textBox_content.Length - 1];
+                string[] subs = textBox_content.Split('.');
+                textBox_content = subs[0] + operation_sign;
+            }
+            else 
+            {
+                if (textBox_content.Contains('.'))
+                {
+                    int len = textBox_content.Length;
+                    if (textBox_content[len - 1] == '+' || textBox_content[len - 1] == '-' || textBox_content[len - 1] == 'x' || textBox_content[len - 1] == '÷')
+                    {
+                        while (textBox_content[len - 2] == '0' && len >= 0)
+                        {
+                            textBox_content = textBox_content.Remove(len - 2, 1);
+                            len = textBox_content.Length;
+                        }
+                    }
+                    else
+                    {
+                        while (textBox_content[len - 1] == '0' && len >= 0)
+                        {
+                            textBox_content = textBox_content.Remove(len - 1, 1);
+                            len = textBox_content.Length;
+                        }
+                    }       
+                }
+            }
+            return textBox_content;
+        }
         private string Operations_excluded_substraction(string textBox_content,char sign_type,char operation_type)
         {
             string[] subs = { "", "" };
@@ -21,11 +54,19 @@ namespace UIWPF.Commands.Functions
                 {
                     case '+':
                         result = Convert.ToDecimal(subs[0]) + Convert.ToDecimal(subs[1]);
-                        textBox_content = Convert.ToString(result)+operation_type;
+                        if (operation_type != '\0')
+                            textBox_content = Convert.ToString(result) + operation_type;
+                        else
+                            textBox_content = Convert.ToString(result);      
+                        textBox_content = Remove_useless_zeros(textBox_content);
                         break;
                     case 'x':
                         result = Convert.ToDecimal(subs[0]) * Convert.ToDecimal(subs[1]);
-                        textBox_content = Convert.ToString(result)+operation_type;
+                        if (operation_type != '\0')
+                            textBox_content = Convert.ToString(result) + operation_type;
+                        else
+                            textBox_content = Convert.ToString(result);
+                        textBox_content = Remove_useless_zeros(textBox_content);
                         break;
                     case '÷':
                         if (subs[1] == "0")
@@ -35,7 +76,11 @@ namespace UIWPF.Commands.Functions
                             if (Convert.ToDecimal(subs[1]) != 0)
                             {
                                 result = Convert.ToDecimal(subs[0]) / Convert.ToDecimal(subs[1]);
-                                textBox_content = Convert.ToString(result) + operation_type;
+                                if (operation_type != '\0')
+                                    textBox_content = Convert.ToString(result) + operation_type;
+                                else
+                                    textBox_content = Convert.ToString(result);
+                                textBox_content =Remove_useless_zeros(textBox_content);
                             }
                             else
                             {
@@ -56,6 +101,7 @@ namespace UIWPF.Commands.Functions
                 case 1:
                     if (textBox_content[0] == '-')
                     {
+                        if(operation_type!='\0')
                         textBox_content = textBox_content + operation_type;
                     }
                     else
@@ -64,7 +110,11 @@ namespace UIWPF.Commands.Functions
                         if (subs[1].Length > 0)
                         {
                             result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                            textBox_content = Convert.ToString(result)+operation_type;
+                            if (operation_type != '\0')
+                                textBox_content = Convert.ToString(result) + operation_type;
+                            else
+                                textBox_content = Convert.ToString(result);
+                            textBox_content = Remove_useless_zeros(textBox_content);
                         }
                     }
                     break;
@@ -77,7 +127,11 @@ namespace UIWPF.Commands.Functions
                         if (subs[1].Length > 0)
                         {
                             result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                            textBox_content = Convert.ToString(result)+operation_type;
+                            if (operation_type != '\0')
+                                textBox_content = Convert.ToString(result) + operation_type;
+                            else
+                                textBox_content = Convert.ToString(result);
+                            textBox_content = Remove_useless_zeros(textBox_content);
                         }
                         else
                         {
@@ -90,7 +144,11 @@ namespace UIWPF.Commands.Functions
                         subs = textBox_content.Split('-');
                         subs[1] = "-" + subs[1];
                         result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                        textBox_content = Convert.ToString(result)+operation_type;
+                        if (operation_type != '\0')
+                            textBox_content = Convert.ToString(result) + operation_type;
+                        else
+                            textBox_content = Convert.ToString(result);
+                        textBox_content = Remove_useless_zeros(textBox_content);
 
                     }
                     break;
@@ -101,7 +159,11 @@ namespace UIWPF.Commands.Functions
                     subs[0] = '-' + subs[0];
                     subs[1] = '-' + subs[1];
                     result = Convert.ToDecimal(subs[0]) - Convert.ToDecimal(subs[1]);
-                    textBox_content = Convert.ToString(result)+operation_type;
+                    if (operation_type != '\0')
+                        textBox_content = Convert.ToString(result) + operation_type;
+                    else
+                        textBox_content = Convert.ToString(result);
+                    textBox_content = Remove_useless_zeros(textBox_content);
                     break;
             }
             return textBox_content;

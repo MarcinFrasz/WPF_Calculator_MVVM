@@ -696,5 +696,447 @@ namespace UIWPF.UnitTests
             var result = operations.Calculations_for_Execute("-6÷0.2", '÷', 'x');
             Assert.AreEqual("-30x", result);
         }
+        //
+        [TestMethod]
+        public void Calculations_for_execute_Test_2point00plus2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("2.00+2", '+', 'x');
+            Assert.AreEqual("4x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_2point00minus2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("2.00-2", '-', 'x');
+            Assert.AreEqual("0x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_2point00x2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("2.00x2", 'x', 'x');
+            Assert.AreEqual("4x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_2point00div2_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("2.00÷2", '÷', 'x');
+            Assert.AreEqual("1x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_1185point7400minus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("1185.7400-5.0200", '-', '\0');
+            Assert.AreEqual("1180.72", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_1185point7400plus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("1185.7400+5.0200", '+', '\0');
+            Assert.AreEqual("1190.76", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_1185point7400x5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("1185.7400x5.0200", 'x', '\0');
+            Assert.AreEqual("5952.4148", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_1185point7400div5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("1185.7400÷5.0200", '÷', '\0');
+            Assert.AreEqual("236.20318725099601593625498008", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400minus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400-5.0200", '-', '\0');
+            Assert.AreEqual("-1190.76", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400plus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400+5.0200", '+', '\0');
+            Assert.AreEqual("-1180.72", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400x5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400x5.0200", 'x', '\0');
+            Assert.AreEqual("-5952.4148", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400div5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400÷5.0200", '÷', '\0');
+            Assert.AreEqual("-236.20318725099601593625498008", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400minusminus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400--5.0200", '-', '\0');
+            Assert.AreEqual("-1180.72", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400plusminus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400+-5.0200", '+', '\0');
+            Assert.AreEqual("-1190.76", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400xminus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400x-5.0200", 'x', '\0');
+            Assert.AreEqual("5952.4148", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus1185point7400divminus5point0200_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-1185.7400÷-5.0200", '÷', '\0');
+            Assert.AreEqual("236.20318725099601593625498008", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_5plus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5+3", '+', '\0');
+            Assert.AreEqual("8", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_5minus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5-3", '-', '\0');
+            Assert.AreEqual("2", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_5x3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5x3", 'x', '\0');
+            Assert.AreEqual("15", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_5div3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5÷3", '÷', '\0');
+            Assert.AreEqual("1.6666666666666666666666666667", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5plus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5+3", '+', '\0');
+            Assert.AreEqual("-2", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5minus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5-3", '-', '\0');
+            Assert.AreEqual("-8", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5x3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5x3", 'x', '\0');
+            Assert.AreEqual("-15", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5div3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5÷3", '÷', '\0');
+            Assert.AreEqual("-1.6666666666666666666666666667", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5plusminus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5+-3", '+', '\0');
+            Assert.AreEqual("-8", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5minusminus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5--3", '-', '\0');
+            Assert.AreEqual("-2", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5xminus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5x-3", 'x', '\0');
+            Assert.AreEqual("15", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Testequals_minus5divminus3_Click_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5÷-3", '÷', '\0');
+            Assert.AreEqual("1.6666666666666666666666666667", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300plus31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300+31.0200",'+','+');
+            Assert.AreEqual("36.023+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300plus31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300+31.0200", '+', '-');
+            Assert.AreEqual("36.023-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300plus31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300+31.0200", '+', 'x');
+            Assert.AreEqual("36.023x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300plus31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300+31.0200", '+', '÷');
+            Assert.AreEqual("36.023÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300plus31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300+31.0200", '+', '\0');
+            Assert.AreEqual("36.023", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minus31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300-31.0200", '-', '+');
+            Assert.AreEqual("-26.017+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minus31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300-31.0200", '-', '-');
+            Assert.AreEqual("-26.017-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minus31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300-31.0200", '-', 'x');
+            Assert.AreEqual("-26.017x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minus31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300-31.0200", '-', '÷');
+            Assert.AreEqual("-26.017÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minus31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300-31.0200", '-', '\0');
+            Assert.AreEqual("-26.017", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300x31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300x31.0200", 'x', '+');
+            Assert.AreEqual("155.19306+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300x31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300x31.0200", 'x', '-');
+            Assert.AreEqual("155.19306-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300x31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300x31.0200", 'x', 'x');
+            Assert.AreEqual("155.19306x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300x31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300x31.0200", 'x', '÷');
+            Assert.AreEqual("155.19306÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300x31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300x31.0200", 'x', '\0');
+            Assert.AreEqual("155.19306", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300div31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300÷31.0200", '÷', '+');
+            Assert.AreEqual("0.1612830431979368149580915538+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300div31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300÷31.0200", '÷', '-');
+            Assert.AreEqual("0.1612830431979368149580915538-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300div31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300÷31.0200", '÷', 'x');
+            Assert.AreEqual("0.1612830431979368149580915538x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300div31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300÷31.0200", '÷', '÷');
+            Assert.AreEqual("0.1612830431979368149580915538÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300div31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300÷31.0200", '÷', '\0');
+            Assert.AreEqual("0.1612830431979368149580915538", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minus31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300-31.0200", '-', '-');
+            Assert.AreEqual("-36.023-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minus31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300-31.0200", '-', '+');
+            Assert.AreEqual("-36.023+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minus31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300-31.0200", '-', 'x');
+            Assert.AreEqual("-36.023x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minus31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300-31.0200", '-', '÷');
+            Assert.AreEqual("-36.023÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minus31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300-31.0200", '-', '\0');
+            Assert.AreEqual("-36.023", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minuminuss31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300--31.0200", '-', '-');
+            Assert.AreEqual("36.023-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minusminus31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300--31.0200", '-', '+');
+            Assert.AreEqual("36.023+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minusminus31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300--31.0200", '-', 'x');
+            Assert.AreEqual("36.023x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minusminus31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300--31.0200", '-', '÷');
+            Assert.AreEqual("36.023÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_5point00300minusminus31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("5.00300--31.0200", '-', '\0');
+            Assert.AreEqual("36.023", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minuminuss31point0200_minus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300--31.0200", '-', '-');
+            Assert.AreEqual("26.017-", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minusminus31point0200_plus()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300--31.0200", '-', '+');
+            Assert.AreEqual("26.017+", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minusminus31point0200_x()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300--31.0200", '-', 'x');
+            Assert.AreEqual("26.017x", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minusminus31point0200_div()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300--31.0200", '-', '÷');
+            Assert.AreEqual("26.017÷", result);
+        }
+        [TestMethod]
+        public void Calculations_for_execute_Test_minus5point00300minusminus31point0200_equals()
+        {
+            var operations = new Operations();
+            var result = operations.Calculations_for_Execute("-5.00300--31.0200", '-', '\0');
+            Assert.AreEqual("26.017", result);
+        }
     }
 }
