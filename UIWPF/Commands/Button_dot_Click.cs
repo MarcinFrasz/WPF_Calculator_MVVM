@@ -21,27 +21,18 @@ namespace UIWPF.Commands
             switch (textBox_content.Count(x => x == sign_type))
             {
                 case 1:
-                    if (textBox_content[0] == sign_type && textBox_content.Length > 1 && !textBox_content.Contains('.'))
-                        textBox_content = textBox_content + '.';
-                    else
+                    if(textBox_content[0]!=sign_type)
                     {
-                        if (textBox_content.Length > 1 && textBox_content[0] != sign_type)
+                        subs = textBox_content.Split(sign_type);
+                        if(!subs[1].Contains('.'))
                         {
-                            subs = textBox_content.Split(sign_type);
-                            if (subs[1].Length > 0 && !subs[1].Contains('.'))
-                            {
-                                subs[1] = subs[1] + '.';
-                            }
+                            if (subs[1].Length == 0)
+                                subs[1] = "0.";
                             else
-                            {
-                                if (!subs[1].Contains('.'))
-                                    subs[1] = subs[1] + ".";
-                            }
+                                subs[1] = subs[1] + '.';
                             textBox_content = subs[0] + sign_type + subs[1];
                         }
-
                     }
-
                     break;
                 case 2:
                     if (textBox_content[0] == sign_type)
@@ -84,13 +75,17 @@ namespace UIWPF.Commands
                     subs = textBox_content.Split(sign_type);
                     if (subs[1].Length > 0 && !subs[1].Contains('.'))
                     {
-                        textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[1];
+                        textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[1]+'.';
                     }
                     else
                     {
                         if (subs[1].Length == 0)
                         {
                             textBox_content = sign_type + subs[0] + sign_type + sign_type + "0.";
+                        }
+                        else
+                        {
+                            textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[1];
                         }
                     }
                     break;
@@ -115,7 +110,6 @@ namespace UIWPF.Commands
                         if(subs[1].Length!=1 || !subs[1].Contains('.'))
                             textBox_content = textBox_content + ".";
                     }
-
                 }
             }
             else
@@ -123,6 +117,15 @@ namespace UIWPF.Commands
                 textBox_content=Dot_functionality_negativeswitchcase(textBox_content, sign_type);
             }
 
+            return textBox_content;
+        }
+        internal string Dot_functionality_default(string textBox_content)
+        {
+            int n = textBox_content.Length - 1;
+            if (textBox_content[n] != '-' && textBox_content[n] != '+' && textBox_content[n] != 'x' && textBox_content[n] != '÷' && textBox_content[n] != '.')
+                textBox_content = textBox_content + ".";
+            else
+                textBox_content = textBox_content + "0.";
             return textBox_content;
         }
         public override void Execute(object? parameter)
