@@ -45,29 +45,24 @@ namespace UIWPF.Commands.Functions
         internal string NumKeysBehaviour(string textBox_content,char num)
         {
             string[] subs = { "", "" };
-            char sign_type = '\0';
             switch(textBox_content)
             {
                 case String a when a.Contains('+'):
-                    sign_type = '+';
                     subs = textBox_content.Split('+');
                     break;
                 case String b when b.Contains('x'):
-                    sign_type = 'x';
                     subs=textBox_content.Split('x');
                     break;
                 case String c when c.Contains('÷'):
-                    sign_type = '÷';
                     subs = textBox_content.Split('÷');
                     break;
                 case String d when d.Contains('-'):
-                    sign_type= '-';
                     subs=Negative_case_for_Clear_functionality(textBox_content);
                     break;
             }
             if (subs[0] == "" && subs[1] == "")
             {
-                if (Convert.ToDecimal(textBox_content) != 0)
+                if (textBox_content!="0" && textBox_content!="-0")
                 {
                     textBox_content = textBox_content + Convert.ToString(num);
                 }
@@ -78,13 +73,15 @@ namespace UIWPF.Commands.Functions
             }
             else
             {
-                if(subs[1].Length>0 && Convert.ToDecimal(subs[1])!=0)
+                if (subs[1].Length > 0 && subs[1]!="0" && subs[1]!="-0")
                 {
-
+                    textBox_content = textBox_content + Convert.ToString(num);
                 }
                 else
                 {
-                    textBox_content=subs[0]
+                    if (subs[1].Length == 0)
+                        textBox_content =textBox_content+Convert.ToString(num);
+
                 }
             }
 

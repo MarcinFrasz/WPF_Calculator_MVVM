@@ -15,7 +15,7 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel=calculatorViewModel;
         }
-        private string Set_sign(string textBox_content,char sign_type)
+        internal string Set_sign(string textBox_content,char sign_type)
         {
             Array.Clear(subs);
             if (sign_type != '-')
@@ -56,7 +56,9 @@ namespace UIWPF.Commands
                             textBox_content=textBox_content.Remove(0, 1);
                             subs = textBox_content.Split(sign_type);
                             if (subs[1].Length > 0)
-                                textBox_content = sign_type+subs[0] + sign_type +sign_type+ subs[1];
+                                textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[1];
+                            else
+                                textBox_content = sign_type + textBox_content;
                         }
                         else
                         {

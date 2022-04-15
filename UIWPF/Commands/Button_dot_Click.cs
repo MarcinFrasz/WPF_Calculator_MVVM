@@ -15,7 +15,89 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel = calculatorViewModel;
         }
-        private string Dot_functionality(string textBox_content, char sign_type)
+        private string Dot_functionality_negativeswitchcase(string textBox_content,char sign_type)
+        {
+            string[] subs = { "", "" };
+            switch (textBox_content.Count(x => x == sign_type))
+            {
+                case 1:
+                    if (textBox_content[0] == sign_type && textBox_content.Length > 1 && !textBox_content.Contains('.'))
+                        textBox_content = textBox_content + '.';
+                    else
+                    {
+                        if (textBox_content.Length > 1 && textBox_content[0] != sign_type)
+                        {
+                            subs = textBox_content.Split(sign_type);
+                            if (subs[1].Length > 0 && !subs[1].Contains('.'))
+                            {
+                                subs[1] = subs[1] + '.';
+                            }
+                            else
+                            {
+                                if (!subs[1].Contains('.'))
+                                    subs[1] = subs[1] + ".";
+                            }
+                            textBox_content = subs[0] + sign_type + subs[1];
+                        }
+
+                    }
+
+                    break;
+                case 2:
+                    if (textBox_content[0] == sign_type)
+                    {
+                        textBox_content = textBox_content.Remove(0, 1);
+                        subs = textBox_content.Split(sign_type);
+                        if (subs[1].Length > 0 && !subs[1].Contains('.'))
+                        {
+                            subs[1] = subs[1] + '.';
+                        }
+                        else
+                        {
+                            if (subs[1].Length == 0)
+                            {
+                                subs[1] = "0.";
+                            }
+                        }
+                        textBox_content = sign_type + subs[0] + sign_type + subs[1];
+                    }
+                    else
+                    {
+                        textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
+                        subs = textBox_content.Split(sign_type);
+                        if (subs[1].Length > 0 && !subs[1].Contains('.'))
+                        {
+                            textBox_content = subs[0] + sign_type + sign_type + subs[1] + "0.";
+                        }
+                        else
+                        {
+                            if (subs[1].Length == 0)
+                            {
+                                textBox_content = subs[0] + sign_type + sign_type + "0.";
+                            }
+                        }
+                    }
+                    break;
+                case 3:
+                    textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
+                    textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
+                    subs = textBox_content.Split(sign_type);
+                    if (subs[1].Length > 0 && !subs[1].Contains('.'))
+                    {
+                        textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[1];
+                    }
+                    else
+                    {
+                        if (subs[1].Length == 0)
+                        {
+                            textBox_content = sign_type + subs[0] + sign_type + sign_type + "0.";
+                        }
+                    }
+                    break;
+            }
+            return textBox_content;
+        }
+        internal string Dot_functionality(string textBox_content, char sign_type)
         {
             string[] subs = { "", "" };
 
@@ -38,83 +120,7 @@ namespace UIWPF.Commands
             }
             else
             {
-                switch (textBox_content.Count(x => x == sign_type))
-                {
-                    case 1:
-                        if (textBox_content[0] == sign_type && textBox_content.Length > 1 && !textBox_content.Contains('.'))
-                            textBox_content = textBox_content + '.';
-                        else
-                        {
-                            if (textBox_content.Length > 1 && textBox_content[0] != sign_type)
-                            {
-                                subs = textBox_content.Split(sign_type);
-                                if (subs[1].Length > 0 && !subs[1].Contains('.'))
-                                {
-                                    subs[1] = subs[1] + '.';
-                                }
-                                else
-                                {
-                                    if(!subs[1].Contains('.'))
-                                        subs[1] = subs[1] + ".";
-                                }
-                                textBox_content = subs[0] + sign_type + subs[1];
-                            }
-
-                        }
-
-                        break;
-                    case 2:
-                        if (textBox_content[0] == sign_type)
-                        {
-                            textBox_content = textBox_content.Remove(0, 1);
-                            subs = textBox_content.Split(sign_type);
-                            if (subs[1].Length > 1 && !subs[1].Contains('.'))
-                            {
-                                subs[1] = subs[1] + '.';
-                            }
-                            else
-                            {
-                                if (subs[1].Length == 0)
-                                {
-                                    subs[1] = "0.";
-                                }
-                            }
-                            textBox_content = sign_type + subs[0] + sign_type + subs[1];
-                        }
-                        else
-                        {
-                            textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
-                            subs = textBox_content.Split(sign_type);
-                            if (subs[1].Length > 0 && !subs[1].Contains('.'))
-                            {
-                                textBox_content = subs[0] + sign_type + sign_type + subs[1] + "0.";
-                            }
-                            else
-                            {
-                                if (subs[1].Length == 0)
-                                {
-                                    textBox_content = subs[0] + sign_type + sign_type + "0.";
-                                }
-                            }
-                        }
-                        break;
-                    case 3:
-                        textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
-                        textBox_content = textBox_content.Remove(textBox_content.IndexOf(sign_type), 1);
-                        subs = textBox_content.Split(sign_type);
-                        if (subs[1].Length > 0 && !subs[1].Contains('.'))
-                        {
-                            textBox_content = sign_type + subs[0] + sign_type + sign_type + subs[0] + '.';
-                        }
-                        else
-                        {
-                            if (subs[1].Length == 0)
-                            {
-                                textBox_content = sign_type + subs[0] + sign_type + sign_type + "0.";
-                            }
-                        }
-                        break;
-                }
+                textBox_content=Dot_functionality_negativeswitchcase(textBox_content, sign_type);
             }
 
             return textBox_content;

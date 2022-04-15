@@ -29,6 +29,8 @@ namespace UIWPF.Commands.Functions
                             textBox_content = textBox_content.Remove(len - 2, 1);
                             len = textBox_content.Length;
                         }
+                        if (textBox_content[len - 2]=='.')
+                            textBox_content.Remove(len - 2, 1);
                     }
                     else
                     {
@@ -37,6 +39,8 @@ namespace UIWPF.Commands.Functions
                             textBox_content = textBox_content.Remove(len - 1, 1);
                             len = textBox_content.Length;
                         }
+                        if (textBox_content[len - 1] == '.')
+                            textBox_content = textBox_content.Remove(len - 1, 1);
                     }       
                 }
             }
