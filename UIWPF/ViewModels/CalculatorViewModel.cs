@@ -10,33 +10,34 @@ namespace UIWPF.ViewModels
 {
     public class CalculatorViewModel : ViewModelBase
     {
-        private string _textBlock_result;
-        private string _button_clear;
+        private  string  _textBlock_result;
+        private readonly string _button_clear;
+        private readonly string _button_clearall;
 
-        private string _button_sign;
-        private string _button_dot;
-        private string _button_0;
-
-
-        private string _button_1;
-        private string _button_2;
-        private string _button_3;
-        private string _button_4;
-        private string _button_5;
-        private string _button_6;
-        private string _button_7;
-        private string _button_8;
-        private string _button_9;
+        private readonly string _button_sign;
+        private readonly string _button_dot;
+        private readonly string _button_0;
 
 
-        private string _button_fraction;
-        private string _button_x_squared;
-        private string _button_squareroot_of_x;
-        private string _button_division;
-        private string _button_multiplication;
-        private string _button_substraction;
-        private string _button_addition;
-        private string _button_equals;
+        private readonly string _button_1;
+        private readonly string _button_2;
+        private readonly string _button_3;
+        private readonly string _button_4;
+        private readonly string _button_5;
+        private readonly string _button_6;
+        private readonly string _button_7;
+        private readonly string _button_8;
+        private readonly string _button_9;
+
+
+        private readonly string _button_fraction;
+        private readonly string _button_x_squared;
+        private readonly string _button_squareroot_of_x;
+        private readonly string _button_division;
+        private readonly string _button_multiplication;
+        private readonly string _button_substraction;
+        private readonly string _button_addition;
+        private readonly string _button_equals;
 
         public ICommand Button_0_Click { get; }
         public ICommand Button_1_Click { get; }
@@ -59,6 +60,7 @@ namespace UIWPF.ViewModels
         public ICommand Button_dot_Click { get; }
         public ICommand Button_equals_Click { get; }
         public ICommand Button_clear_Click { get; }
+        public ICommand Button_clearall_Click { get; }
 
 
         public CalculatorViewModel()
@@ -85,10 +87,12 @@ namespace UIWPF.ViewModels
             _button_addition = "+";
             _button_equals = "=";
             _button_clear = "|X|";
+            _button_clearall = "C";
 
             Button_dot_Click = new Button_dot_Click(this);
             Button_sign_Click = new Button_sign_Click(this);
             Button_clear_Click = new Button_clear_Click(this);
+            Button_clearall_Click = new Button_clearall_Click(this);
 
             Button_0_Click = new Button_0_Click(this);
             Button_1_Click = new Button_1_Click(this);
@@ -205,6 +209,10 @@ namespace UIWPF.ViewModels
         public string Button_clear
         {
             get { return _button_clear; }
+        }
+        public string Button_clearall
+        {
+            get { return _button_clearall; }
         }
     }
 }
