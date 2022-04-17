@@ -1,10 +1,42 @@
-﻿<UserControl x:Class="UIWPF.Views.MainCalculatorView"
+﻿<UserControl x:Class="UIWPF.Views.MainCalculatorView" Focusable="True"
+             Loaded="Act_Loaded"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
               d:DesignHeight="450" d:DesignWidth="800" d:FontSize="30">
+    <UserControl.InputBindings>
+        <KeyBinding Key="NumPad0"   Command="{Binding Button_0_Click}"/>
+        <KeyBinding Key="NumPad1"   Command="{Binding Button_1_Click}"/>
+        <KeyBinding Key="NumPad2"   Command="{Binding Button_2_Click}"/>
+        <KeyBinding Key="NumPad3"   Command="{Binding Button_3_Click}"/>
+        <KeyBinding Key="NumPad4"   Command="{Binding Button_4_Click}"/>
+        <KeyBinding Key="NumPad5"   Command="{Binding Button_5_Click}"/>
+        <KeyBinding Key="NumPad6"   Command="{Binding Button_6_Click}"/>
+        <KeyBinding Key="NumPad7"   Command="{Binding Button_7_Click}"/>
+        <KeyBinding Key="NumPad8"   Command="{Binding Button_8_Click}"/>
+        <KeyBinding Key="NumPad9"   Command="{Binding Button_9_Click}"/>
+        <KeyBinding Key="D0"        Command="{Binding Button_0_Click}"/>
+        <KeyBinding Key="D1"        Command="{Binding Button_1_Click}"/>
+        <KeyBinding Key="D2"        Command="{Binding Button_2_Click}"/>
+        <KeyBinding Key="D3"        Command="{Binding Button_3_Click}"/>
+        <KeyBinding Key="D4"        Command="{Binding Button_4_Click}"/>
+        <KeyBinding Key="D5"        Command="{Binding Button_5_Click}"/>
+        <KeyBinding Key="D6"        Command="{Binding Button_6_Click}"/>
+        <KeyBinding Key="D7"        Command="{Binding Button_7_Click}"/>
+        <KeyBinding Key="D8"        Command="{Binding Button_8_Click}"/>
+        <KeyBinding Key="D9"        Command="{Binding Button_9_Click}"/>
+        
+        <KeyBinding Modifiers="Shift" Key="OemPlus" Command="{Binding Button_addition_Click}"/>
+        <KeyBinding Key="OemMinus" Command="{Binding Button_substraction_Click}"/>
+        <KeyBinding Key="OemPlus" Command="{Binding Button_equals_Click}"/>
+        <KeyBinding Key="Enter" Command="{Binding Button_equals_Click}"/>
+        <KeyBinding Modifiers="Shift" Key="D8" Command="{Binding Button_multiplication_Click}"/>
+        <KeyBinding Key="OemQuestion" Command="{Binding Button_division_Click}"/>
+        <KeyBinding Key="Esc" Command="{Binding Button_clearall_Click}"/>
+        <KeyBinding Key="Backspace" Command="{Binding Button_clear _Click}"/>
+    </UserControl.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -55,6 +87,5 @@
         <Button Command="{Binding Button_dot_Click}" Content="{Binding Button_dot}" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2"/>
         <Button Command="{Binding Button_equals_Click}" Content="{Binding Button_equals}" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="2"/>
     </Grid>
-    
-    
+
 </UserControl>

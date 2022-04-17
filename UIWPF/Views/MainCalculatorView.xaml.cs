@@ -20,6 +20,10 @@ namespace UIWPF.Views
     /// </summary>
     public partial class MainCalculatorView : UserControl
     {
+        private void Act_Loaded(object sender, RoutedEventArgs e)
+        {
+            Focus();
+        }
         public MainCalculatorView()
         {
             InitializeComponent();
