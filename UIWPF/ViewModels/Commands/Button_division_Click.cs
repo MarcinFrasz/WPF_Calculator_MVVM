@@ -28,6 +28,10 @@ namespace UIWPF.Commands
                     break;
                 case String c when c.Contains('÷'):
                     _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '÷', '÷');
+                    if(_calculatorViewModel.TextBlock_result=="Cannot divide by 0")
+                    {
+                       _calculatorViewModel.Buttons_enabled = false;
+                    }
                     break;
                 case String d when d.Contains('-'):
                     _calculatorViewModel.TextBlock_result = op.Calculations_for_Execute(_calculatorViewModel.TextBlock_result, '-', '÷');

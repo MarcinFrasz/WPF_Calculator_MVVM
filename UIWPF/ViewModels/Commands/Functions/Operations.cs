@@ -74,7 +74,7 @@ namespace UIWPF.Commands.Functions
                         break;
                     case '÷':
                         if (subs[1] == "0")
-                            textBox_content = "Cannot divide by 0";
+                            textBox_content = "Cannot divide by 0";                           
                         else
                         {
                             if (Convert.ToDecimal(subs[1]) != 0)

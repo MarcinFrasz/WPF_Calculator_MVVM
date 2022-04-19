@@ -10,10 +10,12 @@ namespace UIWPF.Commands
     internal class Button_0_Click:CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
-        internal Button_0_Click(CalculatorViewModel calculatorViewModel)
+
+        public Button_0_Click(CalculatorViewModel calculatorViewModel) 
         {
-            _calculatorViewModel = calculatorViewModel;
+                _calculatorViewModel = calculatorViewModel;
         }
+
         private string ZeroClick_functionality(string textBox_content)
         {
             if(textBox_content !="0")

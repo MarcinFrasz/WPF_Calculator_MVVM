@@ -14,8 +14,16 @@ namespace UIWPF.Commands
         {
             _calculatorViewModel = calculatorViewModel;
         }
+        public override bool CanExecute(object? parameter)
+        {
+            return true;
+        }
         public override void Execute(object? parameter)
         {
+            //if(_calculatorViewModel.TextBlock_result=="Cannot divide by 0")
+           // {
+                _calculatorViewModel.Buttons_enabled = true;
+          //  }
             _calculatorViewModel.TextBlock_result = "0";
         }
     }

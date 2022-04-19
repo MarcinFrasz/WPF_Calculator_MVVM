@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="UIWPF.Views.MainCalculatorView" Focusable="True"
+﻿<UserControl x:Class="UIWPF.Views.MainCalculatorView" 
+             Focusable="True"
              Loaded="Act_Loaded"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,37 +7,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
               d:DesignHeight="450" d:DesignWidth="800" d:FontSize="30">
+
     <UserControl.InputBindings>
-        <KeyBinding Key="NumPad0"   Command="{Binding Button_0_Click}"/>
-        <KeyBinding Key="NumPad1"   Command="{Binding Button_1_Click}"/>
-        <KeyBinding Key="NumPad2"   Command="{Binding Button_2_Click}"/>
-        <KeyBinding Key="NumPad3"   Command="{Binding Button_3_Click}"/>
-        <KeyBinding Key="NumPad4"   Command="{Binding Button_4_Click}"/>
-        <KeyBinding Key="NumPad5"   Command="{Binding Button_5_Click}"/>
-        <KeyBinding Key="NumPad6"   Command="{Binding Button_6_Click}"/>
-        <KeyBinding Key="NumPad7"   Command="{Binding Button_7_Click}"/>
-        <KeyBinding Key="NumPad8"   Command="{Binding Button_8_Click}"/>
-        <KeyBinding Key="NumPad9"   Command="{Binding Button_9_Click}"/>
-        <KeyBinding Key="D0"        Command="{Binding Button_0_Click}"/>
-        <KeyBinding Key="D1"        Command="{Binding Button_1_Click}"/>
-        <KeyBinding Key="D2"        Command="{Binding Button_2_Click}"/>
-        <KeyBinding Key="D3"        Command="{Binding Button_3_Click}"/>
-        <KeyBinding Key="D4"        Command="{Binding Button_4_Click}"/>
-        <KeyBinding Key="D5"        Command="{Binding Button_5_Click}"/>
-        <KeyBinding Key="D6"        Command="{Binding Button_6_Click}"/>
-        <KeyBinding Key="D7"        Command="{Binding Button_7_Click}"/>
-        <KeyBinding Key="D8"        Command="{Binding Button_8_Click}"/>
-        <KeyBinding Key="D9"        Command="{Binding Button_9_Click}"/>
-        
-        <KeyBinding Modifiers="Shift" Key="OemPlus" Command="{Binding Button_addition_Click}"/>
-        <KeyBinding Key="OemMinus" Command="{Binding Button_substraction_Click}"/>
-        <KeyBinding Key="OemPlus" Command="{Binding Button_equals_Click}"/>
-        <KeyBinding Key="Enter" Command="{Binding Button_equals_Click}"/>
-        <KeyBinding Modifiers="Shift" Key="D8" Command="{Binding Button_multiplication_Click}"/>
-        <KeyBinding Key="OemQuestion" Command="{Binding Button_division_Click}"/>
-        <KeyBinding Key="Esc" Command="{Binding Button_clearall_Click}"/>
-        <KeyBinding Key="Backspace" Command="{Binding Button_clear _Click}"/>
+        <KeyBinding Key="NumPad0"   Command="{Binding Button_0_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad1"   Command="{Binding Button_1_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad2"   Command="{Binding Button_2_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad3"   Command="{Binding Button_3_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad4"   Command="{Binding Button_4_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad5"   Command="{Binding Button_5_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad6"   Command="{Binding Button_6_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad7"   Command="{Binding Button_7_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad8"   Command="{Binding Button_8_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="NumPad9"   Command="{Binding Button_9_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D0"        Command="{Binding Button_0_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D1"        Command="{Binding Button_1_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D2"        Command="{Binding Button_2_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D3"        Command="{Binding Button_3_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D4"        Command="{Binding Button_4_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D5"        Command="{Binding Button_5_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D6"        Command="{Binding Button_6_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D7"        Command="{Binding Button_7_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D8"        Command="{Binding Button_8_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="D9"        Command="{Binding Button_9_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Modifiers="Shift" Key="OemPlus" Command="{Binding Button_addition_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="OemMinus" Command="{Binding Button_substraction_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="OemPlus" Command="{Binding Button_equals_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="Enter" Command="{Binding Button_equals_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+
+        <KeyBinding Modifiers="Shift" Key="D8" Command="{Binding Button_multiplication_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="OemQuestion" Command="{Binding Button_division_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="Esc" Command="{Binding Button_clearall_Click}" />
+        <KeyBinding Key="Backspace" Command="{Binding Button_clear_Click}" CommandParameter="{Binding Buttons_enabled }"/>
+        <KeyBinding Key="OemPeriod" Command="{Binding Button_dot_Click}" CommandParameter="{Binding Buttons_enabled }"/>
     </UserControl.InputBindings>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -59,33 +63,225 @@
         
         <!--Row0-->
         <TextBox x:Name="TextBlock_Result" Text="{Binding TextBlock_result,Mode=OneWay}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="6"  TextAlignment="Right" HorizontalScrollBarVisibility="Visible" IsReadOnly="True"  Background="White"/>
-        <Button  Command="{Binding Button_clearall_Click}" Content="{Binding Button_clearall}"  Grid.Column="0" Grid.Row="0"/>
-        <Button  Command="{Binding Button_clear_Click}" Content="{Binding Button_clear}" Grid.Column="1" Grid.Row="0" />
+        <Button x:Name="Button_clearall" 
+                Command="{Binding Button_clearall_Click}" 
+                Content="{Binding Button_clearall}"  
+                Grid.Column="0" Grid.Row="0"
+         />
+        <Button 
+            x:Name="Button_clear" 
+            Command="{Binding Button_clear_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_clear}" 
+            Grid.Column="1" Grid.Row="0" 
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
         <!--Row1-->
-        <Button Command="{Binding Button_fraction_Click}" Content="{Binding Button_fraction}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_x_squared_Click}" Content="{Binding Button_x_squared}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_squareroot_of_x_Click}" Content="{Binding Button_squareroot_of_x}" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_division_Click}" Content="{Binding Button_divison}" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Button 
+            x:Name="Button_fraction" 
+            Command="{Binding Button_fraction_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_fraction}" 
+            Grid.Column="0" Grid.Row="1" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
+        <Button 
+            x:Name="Button_x_squared" 
+            Command="{Binding Button_x_squared_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_x_squared}" 
+            Grid.Column="2" Grid.Row="1" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
+        <Button 
+            x:Name="Button_squareroot" 
+            Command="{Binding Button_squareroot_of_x_Click}"
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_squareroot_of_x}" 
+            Grid.Column="4" Grid.Row="1" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
+        <Button 
+            x:Name="Button_division" 
+            Command="{Binding Button_division_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_divison}" 
+            Grid.Column="6" Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
         <!--Row2-->
-        <Button Command="{Binding Button_7_Click}" Content="{Binding Button_7}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_8_Click}" Content="{Binding Button_8}" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_9_Click}" Content="{Binding Button_9}" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_multiplication_Click}" Content="{Binding Button_multiplication}" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button 
+            x:Name="Button_7" 
+            Command="{Binding Button_7_Click}"
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_7}" 
+            Grid.Column="0" Grid.Row="2" 
+            Grid.ColumnSpan="2" 
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+         />
+        <Button 
+            x:Name="Button_8" 
+            Command="{Binding Button_8_Click}"
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_8}" 
+            Grid.Column="2" Grid.Row="2" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
+        <Button
+            x:Name="Button_9" 
+            Command="{Binding Button_9_Click}"
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_9}" 
+            Grid.Column="4" Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
+        <Button 
+            x:Name="Button_multiplication" 
+            Command="{Binding Button_multiplication_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_multiplication}" 
+            Grid.Column="6" Grid.Row="2" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
         <!--Row3-->
-        <Button Command="{Binding Button_4_Click}" Content="{Binding Button_4}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_5_Click}" Content="{Binding Button_5}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_6_Click}" Content="{Binding Button_6}" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_substraction_Click}"  Content="{Binding Button_substraction}" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Button 
+            x:Name="Button_4" 
+            Command="{Binding Button_4_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_4}" 
+            Grid.Column="0" 
+            Grid.Row="3" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
+        <Button 
+            x:Name="Button_5" 
+            Command="{Binding Button_5_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_5}" 
+            Grid.Column="2" Grid.Row="3" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
+        <Button 
+            x:Name="Button_6" 
+            Command="{Binding Button_6_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_6}"
+            Grid.Column="4" Grid.Row="3" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
+        <Button 
+            x:Name="Button_substaction" 
+            Command="{Binding Button_substraction_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_substraction}" 
+            Grid.Column="6" Grid.Row="3" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+        />
         <!--Row4-->
-        <Button Command="{Binding Button_1_Click}" Content="{Binding Button_1}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_2_Click}" Content="{Binding Button_2}" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_3_Click}" Content="{Binding Button_3}" Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_addition_Click}" Content="{Binding Button_addition}" Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Button 
+            x:Name="Button_1" 
+            Command="{Binding Button_1_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_1}" Grid.Column="0" Grid.Row="4"
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_2" 
+            Command="{Binding Button_2_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_2}" 
+            Grid.Column="2" Grid.Row="4" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_3" 
+            Command="{Binding Button_3_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_3}"
+            Grid.Column="4" Grid.Row="4" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_addition" 
+            Command="{Binding Button_addition_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_addition}" 
+            Grid.Column="6" Grid.Row="4" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
         <!--Row5-->
-        <Button Command="{Binding Button_sign_Click}" Content="{Binding Button_sign}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_0_Click}" Content="{Binding Button_0}" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_dot_Click}" Content="{Binding Button_dot}" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2"/>
-        <Button Command="{Binding Button_equals_Click}" Content="{Binding Button_equals}" Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <Button 
+            x:Name="Button_sign" 
+            Command="{Binding Button_sign_Click}"
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_sign}" 
+            Grid.Column="0" Grid.Row="5" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_0" 
+            Command="{Binding Button_0_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_0}" 
+            Grid.Column="2" Grid.Row="5" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_dot" 
+            Command="{Binding Button_dot_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_dot}" 
+            Grid.Column="4" Grid.Row="5" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
+        <Button 
+            x:Name="Button_equals" 
+            Command="{Binding Button_equals_Click}" 
+            CommandParameter="{Binding Buttons_enabled }"
+            Content="{Binding Button_equals}" 
+            Grid.Column="6" Grid.Row="5" 
+            Grid.ColumnSpan="2"
+            Focusable="False"
+            IsEnabled="{Binding Buttons_enabled}"
+            />
     </Grid>
 
 </UserControl>

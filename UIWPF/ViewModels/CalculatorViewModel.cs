@@ -10,6 +10,7 @@ namespace UIWPF.ViewModels
 {
     public class CalculatorViewModel : ViewModelBase
     {
+        private bool _buttons_enabled;
         private  string  _textBlock_result;
         private readonly string _button_clear;
         private readonly string _button_clearall;
@@ -62,9 +63,9 @@ namespace UIWPF.ViewModels
         public ICommand Button_clear_Click { get; }
         public ICommand Button_clearall_Click { get; }
 
-
         public CalculatorViewModel()
         {
+            _buttons_enabled = true;
             _textBlock_result = "0";
             _button_sign = "+/-";
             _button_dot = ".";
@@ -93,7 +94,6 @@ namespace UIWPF.ViewModels
             Button_sign_Click = new Button_sign_Click(this);
             Button_clear_Click = new Button_clear_Click(this);
             Button_clearall_Click = new Button_clearall_Click(this);
-
             Button_0_Click = new Button_0_Click(this);
             Button_1_Click = new Button_1_Click(this);
             Button_2_Click = new Button_2_Click(this);
@@ -116,6 +116,17 @@ namespace UIWPF.ViewModels
 
         }
 
+
+
+        public bool Buttons_enabled
+        {
+            get { return _buttons_enabled; }
+            set 
+            {
+                _buttons_enabled = value;
+                OnPropertyChanged(nameof(Buttons_enabled));
+            }
+        }
         public string TextBlock_result
         {
             get { return _textBlock_result; }

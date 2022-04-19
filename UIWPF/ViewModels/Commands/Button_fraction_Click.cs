@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UIWPF.Commands.Functions;
 using UIWPF.ViewModels;
+using UIWPF.Commands.Functions;
 
 namespace UIWPF.Commands
 {
-    internal class Button_squareroot_of_x_Click : CommandBase
+    internal class Button_fraction_Click : CommandBase
     {
         CalculatorViewModel _calculatorViewModel;
-        internal Button_squareroot_of_x_Click(CalculatorViewModel calculatorViewModel)
+        internal Button_fraction_Click(CalculatorViewModel calculatorViewModel)
         {
             _calculatorViewModel = calculatorViewModel;
         }
+
         public override void Execute(object? parameter)
         {
             FractionSquareSquareRootOperations op = new FractionSquareSquareRootOperations();
-            _calculatorViewModel.TextBlock_result = op.FractionSquareSquareRoot_Functionality(_calculatorViewModel.TextBlock_result, '3');
+            _calculatorViewModel.TextBlock_result=op.FractionSquareSquareRoot_Functionality(_calculatorViewModel.TextBlock_result,'1');
+            if (_calculatorViewModel.TextBlock_result == "Cannot divide by 0")
+            {
+                _calculatorViewModel.Buttons_enabled = false;
+            }
         }
     }
 }
