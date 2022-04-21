@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using UIWPF.Services;
 using UIWPF.Stores;
 using UIWPF.ViewModels.Commands;
 
@@ -15,11 +16,11 @@ namespace UIWPF.ViewModels
         public ICommand Button_simplecalculator_Click { get; }
         public ICommand Button_converter_Click { get; }
         public ICommand Button_menu_Click { get; }
-        public NavigationViewModel(NavigationStore navigationStore)
+        public NavigationViewModel(NavigationStore navigationStore, NavigationService<CalculatorViewModel> calculatorNavigationService, NavigationService<ConverterViewModel> converterNavigationService)
         {
             _navigationWidth = 0;
-            Button_simplecalculator_Click = new Button_simplecalculator_Click(this,navigationStore);
-            Button_converter_Click = new Button_converter_Click(this,navigationStore);
+            Button_simplecalculator_Click =new NavigateCommand<CalculatorViewModel>(calculatorNavigationService);
+            Button_converter_Click = new NavigateCommand<ConverterViewModel>(converterNavigationService);
             Button_menu_Click = new Button_menu_Click(this);
         }
         public int NavigationWidth

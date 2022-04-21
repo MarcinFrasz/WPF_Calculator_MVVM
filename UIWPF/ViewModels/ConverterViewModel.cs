@@ -9,7 +9,7 @@ using UIWPF.ViewModels.Commands;
 
 namespace UIWPF.ViewModels
 {
-    internal class ConverterViewModel: ViewModelBase
+    public class ConverterViewModel: ViewModelBase
     {
         private  NavigationViewModel _navigationViewModel;
         public ICommand Button_menu_Click { get; }
