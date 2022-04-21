@@ -20,6 +20,7 @@ namespace UIWPF.ViewModels.Commands
 
         public override void Execute(object? parameter)
         {
+            _navigationViewModel.NavigationWidth = 0;
             _navigationStore.CurrentViewModel = new ConverterViewModel(_navigationViewModel);
         }
     }

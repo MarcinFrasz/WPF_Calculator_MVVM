@@ -10,12 +10,32 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Navigation:NavigationView Grid.Column="0" DataContext="{Binding NavigationViewModel}"/>
-        <Button Content="{Binding Test}" Grid.Column="1"/>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Button_menu" Grid.Row="0" Grid.Column="0"
+                    Focusable="False" Background="LightGray" BorderBrush="RoyalBlue"
+                    Command="{Binding Button_menu_Click}">
+                <Image Source="/Icons/menu_icon.png" />
+            </Button>
+        </Grid>
+        <Navigation:NavigationView  Width="{Binding NavigationWidth}" DataContext="{Binding NavigationViewModel}" HorizontalAlignment="Left"/>
     </Grid>
 </UserControl>

@@ -8,8 +8,22 @@
              xmlns:local="clr-namespace:UIWPF.Views.Navigation"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="sidePanel" HorizontalAlignment="Left" Width="{Binding SidePanelWidth}" Background="LightSlateGray">
+    <Grid x:Name="sidePanel" HorizontalAlignment="Left" Background="LightSlateGray">
         <StackPanel>
+            <ListView FontFamily="Arial" FontSize="14" Background="SlateGray" VerticalAlignment="Top" >
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Button 
+                            Margin="15 0 0 0" 
+                            Background="Transparent" 
+                            Command="{Binding Button_menu_Click}"
+                            VerticalAlignment="Center"
+                            >
+                            <Image Source="/Icons/menu_icon.png" />
+                        </Button>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
             <Label>Calculator</Label>
             <ListView FontFamily="Arial" FontSize="14" Background="SlateGray" VerticalAlignment="Top" >
                 <ListViewItem Height="30">
@@ -18,7 +32,7 @@
                             Margin="15 0 0 0" 
                             Background="Transparent" 
                             Command="{Binding Button_simplecalculator_Click}" 
-                            Content="{Binding Test}" 
+                            Content="place holder" 
                             VerticalAlignment="Center"
                             />
                     </StackPanel>
