@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UIWPF.Commands;
+using UIWPF.Stores;
+using UIWPF.ViewModels.Commands;
+using UIWPF.ViewModels.Commands.NumbersCommands;
 
 namespace UIWPF.ViewModels
 {
@@ -14,21 +17,22 @@ namespace UIWPF.ViewModels
         private  string  _textBlock_result;
         private readonly string _button_clear;
         private readonly string _button_clearall;
+        private int _sidePanelWidth;
 
         private readonly string _button_sign;
         private readonly string _button_dot;
         private readonly string _button_0;
 
 
-        private readonly string _button_1;
-        private readonly string _button_2;
-        private readonly string _button_3;
-        private readonly string _button_4;
-        private readonly string _button_5;
-        private readonly string _button_6;
-        private readonly string _button_7;
-        private readonly string _button_8;
-        private readonly string _button_9;
+        private readonly char _button_1;
+        private readonly char _button_2;
+        private readonly char _button_3;
+        private readonly char _button_4;
+        private readonly char _button_5;
+        private readonly char _button_6;
+        private readonly char _button_7;
+        private readonly char _button_8;
+        private readonly char _button_9;
 
 
         private readonly string _button_fraction;
@@ -39,7 +43,6 @@ namespace UIWPF.ViewModels
         private readonly string _button_substraction;
         private readonly string _button_addition;
         private readonly string _button_equals;
-
         public ICommand Button_0_Click { get; }
         public ICommand Button_1_Click { get; }
         public ICommand Button_2_Click { get; }
@@ -62,23 +65,27 @@ namespace UIWPF.ViewModels
         public ICommand Button_equals_Click { get; }
         public ICommand Button_clear_Click { get; }
         public ICommand Button_clearall_Click { get; }
+        public ICommand Button_menu_Click { get; }
+        internal NavigationViewModel _navigationViewModel;
 
-        public CalculatorViewModel()
+        internal CalculatorViewModel(NavigationViewModel navigationViewModel)
         {
+            _navigationViewModel = navigationViewModel;
+            _sidePanelWidth = 0;
             _buttons_enabled = true;
             _textBlock_result = "0";
             _button_sign = "+/-";
             _button_dot = ".";
             _button_0 = "0";
-            _button_1 = "1";
-            _button_2 = "2";
-            _button_3 = "3";
-            _button_4 = "4";
-            _button_5 = "5";
-            _button_6 = "6";
-            _button_7 = "7";
-            _button_8 = "8";
-            _button_9 = "9";
+            _button_1 = '1';
+            _button_2 = '2';
+            _button_3 = '3';
+            _button_4 = '4';
+            _button_5 = '5';
+            _button_6 = '6';
+            _button_7 = '7';
+            _button_8 = '8';
+            _button_9 = '9';
             _button_fraction = "1/x";
             _button_x_squared = "x²";
             _button_squareroot_of_x = "√x";
@@ -112,12 +119,22 @@ namespace UIWPF.ViewModels
             Button_fraction_Click = new Button_fraction_Click(this);
             Button_x_squared_Click = new Button_x_squared_Click(this);
             Button_squareroot_of_x_Click = new Button_squareroot_of_x_Click(this);
-
-
+            Button_menu_Click = new Button_menu_Click(this);
         }
 
-
-
+        public NavigationViewModel NavigationViewModel
+        {
+            get { return _navigationViewModel; }
+        }
+        public int SidePanelWidth
+        {
+            get { return _sidePanelWidth; }
+            set
+            {
+                _sidePanelWidth = value;
+                OnPropertyChanged(nameof(SidePanelWidth));
+            }
+        }
         public bool Buttons_enabled
         {
             get { return _buttons_enabled; }
@@ -141,39 +158,39 @@ namespace UIWPF.ViewModels
         {
             get { return _button_0; }
         }
-        public string Button_1
+        public char Button_1
         {
             get { return _button_1; }
         }
-        public string Button_2
+        public char Button_2
         {
             get { return _button_2; }
         }
-        public string Button_3
+        public char Button_3
         {
             get { return _button_3; }
         }
-        public string Button_4
+        public char Button_4
         {
             get { return _button_4; }
         }
-        public string Button_5
+        public char Button_5
         {
             get { return _button_5; }
         }
-        public string Button_6
+        public char Button_6
         {
             get { return _button_6; }
         }
-        public string Button_7
+        public char Button_7
         {
             get { return _button_7; }
         }
-        public string Button_8
+        public char Button_8
         {
             get { return _button_8; }
         }
-        public string Button_9
+        public char Button_9
         {
             get { return _button_9; }
         }

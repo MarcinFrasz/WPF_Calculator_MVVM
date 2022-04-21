@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UIWPF.Commands;
 using UIWPF.Commands.Functions;
-using UIWPF.ViewModels;
 
-namespace UIWPF.Commands
+namespace UIWPF.ViewModels.Commands.NumbersCommands
 {
-    internal class Button_9_Click:CommandBase
+    internal class Button_9_Click : CommandBase
     {
         private readonly CalculatorViewModel _calculatorViewModel;
         internal Button_9_Click(CalculatorViewModel calculatorViewModel)
