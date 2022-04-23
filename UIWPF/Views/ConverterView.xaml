@@ -7,9 +7,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UIWPF.Views" xmlns:Navigation="clr-namespace:UIWPF.Views.Navigation"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-
-    <Grid Background="White">
+             MinHeight="440"
+             MinWidth="570"
+             d:DesignHeight="450" d:DesignWidth="800" d:MinWidth="570" d:MinHeight="440">
+    <UserControl.Resources>
+        <Style TargetType="ComboBoxItem">
+                <Setter Property="Background" Value="Yellow"/>
+                <Setter Property="BorderBrush" Value="Yellow"/>
+            </Style>
+    </UserControl.Resources>
+    <Grid Background="LightGray">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -30,11 +37,100 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="Button_menu" Grid.Row="0" Grid.Column="0"
-                    Focusable="False" Background="LightGray" BorderBrush="RoyalBlue"
-                    Command="{Binding Button_menu_Click}">
+            <!--Row0-->
+            <Button 
+                x:Name="Button_menu" 
+                Grid.Row="0" Grid.Column="0"
+                Focusable="False" 
+                Background="LightGray" BorderBrush="RoyalBlue"
+                Command="{Binding Button_menu_Click}"
+                >
                 <Image Source="/Icons/menu_icon.png" />
             </Button>
+            <TextBlock 
+                Grid.Row="0" Grid.Column="1" 
+                Grid.ColumnSpan="7"
+                Text="Converter" 
+                Background="LightGray"
+                TextAlignment="Center"
+                />
+            <!--Row1-->
+            <TextBlock
+                Grid.Row="1" Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Text="Select input type:"
+                Background="LightGray"
+                TextAlignment="Left"
+                />
+            <TextBlock
+                Grid.Row="1" Grid.Column="4"
+                Grid.ColumnSpan="4"
+                Text="Select output type:"
+                Background="LightGray"
+                TextAlignment="Left"
+                />
+            <!--Row2-->
+            <ComboBox
+                Grid.Row="2" Grid.Column="0"
+                Grid.ColumnSpan="4"
+                ItemsSource="{Binding ComboBoxInputList}"
+                SelectedItem="{Binding SelectedInput}"
+                Text="{Binding SelectedInput}"
+                IsEditable="true"
+                IsReadOnly="true"
+
+                />
+            <ComboBox
+                Grid.Row="2" Grid.Column="4"
+                Grid.ColumnSpan="4"
+                ItemsSource="{Binding ComboBoxOutputList}"
+                SelectedItem="{Binding SelectedOutput}"
+                Text="{Binding SelectedOutput}"
+                IsEditable="true"
+                IsReadOnly="true"
+                />
+            <!--Row3-->
+            <TextBlock
+                Grid.Row="3" Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Text="Insert your input:"
+                Background="LightGray"
+                TextAlignment="Left"
+                />
+            <TextBox
+                Grid.Row="3" Grid.Column="4"
+                Grid.ColumnSpan="5"
+                Text="{Binding InputValue, 
+                Mode=TwoWay, 
+                UpdateSourceTrigger=PropertyChanged}"
+                TextAlignment="Left"
+                 />
+            <!--Row4-->
+            <Button
+                Grid.Row="4" Grid.Column="6"
+                Grid.ColumnSpan="3"
+                Content="Convert"
+                Command="{Binding Button_convert_Click}"
+                HorizontalAlignment="Right"
+                Background="SkyBlue"
+                
+                />
+            <!--Row5-->
+            <TextBlock
+                Grid.Row="5" Grid.Column="0"
+                Grid.ColumnSpan="8"
+                Text="Result:"
+                Background="LightGray"
+                TextAlignment="Left"
+                />
+            <!--Row6-->
+            <TextBlock
+                Grid.Row="6" Grid.Column="0"
+                Grid.ColumnSpan="8"
+                Text="{Binding Result, Mode=OneWay}"
+                Background="White"
+                TextAlignment="Left"
+                />
         </Grid>
         <Navigation:NavigationView  Width="{Binding NavigationWidth}" DataContext="{Binding NavigationViewModel}" HorizontalAlignment="Left"/>
     </Grid>

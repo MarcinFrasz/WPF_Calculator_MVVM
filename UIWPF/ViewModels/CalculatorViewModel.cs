@@ -70,6 +70,7 @@ namespace UIWPF.ViewModels
 
         internal CalculatorViewModel(NavigationViewModel navigationViewModel)
         {
+            navigationViewModel.NavigationWidth = 0;
             _navigationViewModel = navigationViewModel;
             _sidePanelWidth = 0;
             _buttons_enabled = true;

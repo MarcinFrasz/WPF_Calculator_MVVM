@@ -6,7 +6,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Navigation="clr-namespace:UIWPF.Views.Navigation" xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-              d:DesignHeight="450" d:DesignWidth="800" d:FontSize="30">
+             MinHeight="440"
+             MinWidth="570"
+              d:DesignHeight="450" d:DesignWidth="800" d:FontSize="30" >
 
     <UserControl.InputBindings>
         <KeyBinding Key="NumPad0"   Command="{Binding Button_0_Click}" CommandParameter="{Binding Buttons_enabled }"/>

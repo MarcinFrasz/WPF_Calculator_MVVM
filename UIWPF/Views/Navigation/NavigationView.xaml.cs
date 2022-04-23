@@ -28,5 +28,10 @@ namespace UIWPF.Views.Navigation
         {
             InitializeComponent();
         }
+
+        private void sidePanel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }
