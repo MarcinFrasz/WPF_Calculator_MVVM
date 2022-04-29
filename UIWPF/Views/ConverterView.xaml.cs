@@ -28,5 +28,10 @@ namespace UIWPF.Views
         {
             InitializeComponent();
         }
+
+        private void TextBox_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

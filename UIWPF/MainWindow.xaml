@@ -6,7 +6,9 @@
         xmlns:views="clr-namespace:UIWPF.Views"
         xmlns:vms="clr-namespace:UIWPF.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontSize="30" MinWidth="200" MinHeight="300">
+             MinHeight="475"
+             MinWidth="585"
+        Title="MainWindow" Height="450" Width="800" FontSize="30">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:CalculatorViewModel}">

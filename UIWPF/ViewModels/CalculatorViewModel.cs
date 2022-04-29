@@ -70,6 +70,7 @@ namespace UIWPF.ViewModels
 
         internal CalculatorViewModel(NavigationViewModel navigationViewModel)
         {
+            navigationViewModel.NavigationWidth = 0;
             _navigationViewModel = navigationViewModel;
             _sidePanelWidth = 0;
             _buttons_enabled = true;
@@ -119,7 +120,7 @@ namespace UIWPF.ViewModels
             Button_fraction_Click = new Button_fraction_Click(this);
             Button_x_squared_Click = new Button_x_squared_Click(this);
             Button_squareroot_of_x_Click = new Button_squareroot_of_x_Click(this);
-            Button_menu_Click = new Button_menu_Click(this);
+            Button_menu_Click = new Button_menucalculator_Click(this);
         }
 
         public NavigationViewModel NavigationViewModel

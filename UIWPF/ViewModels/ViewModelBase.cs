@@ -13,6 +13,6 @@ namespace UIWPF.ViewModels
         protected void OnPropertyChanged(string propertyName) //call this metod to know when values change
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }       
     }
 }
